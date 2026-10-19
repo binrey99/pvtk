@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "[GM] Quà Tân Thủ Phú Quý (9,999,999 Vàng & KNB)",
+    "level": 1,
+    "desc": "Nhận ngay gói hỗ trợ Offline GM: 9,999,999 KNB, 9,999,999 Kim Diệp, 99,999,999 Đồng Vàng và Tuyệt Thế Hảo Kiếm!",
+    "dialogStart": "Chào đại hiệp! Hãy nhận ngay gói đặc quyền Offline để thỏa sức hành tẩu giang hồ.",
+    "dialogComplete": "Chúc mừng đại hiệp đã nhận toàn bộ kho báu Phong Vân Truyền Kỳ 2!",
+    "exp": 50000,
+    "money1": 9999999,
+    "money2": 9999999,
+    "money3": 99999999,
+    "rewardItemIds": [
+      1001,
+      2009,
+      2010
+    ]
+  },
+  {
+    "id": 2,
+    "name": "[Chính Tuyến] Phong Vân Hợp Bích - Đại Chiến Hùng Bá",
+    "level": 10,
+    "desc": "Tìm gặp Bộ Kinh Vân và Nhiếp Phong tại Thiên Hạ Hội Tổng Đàn, phá giải dã tâm của Hùng Bá.",
+    "dialogStart": "Kim Lân Khởi Thị Trì Trung Vật, Nhất Ngộ Phong Vân Tiện Hóa Long!",
+    "dialogComplete": "Thiên Hạ Hội đã quy thuận, uy danh của đại hiệp vang dội khắp võ lâm!",
+    "exp": 250000,
+    "money1": 500000,
+    "money2": 500000,
+    "money3": 5000000,
+    "rewardItemIds": [
+      1002,
+      2002
+    ]
+  },
+  {
+    "id": 3,
+    "name": "[Thần Khí] Xuất Thế Tuyệt Thế Hảo Kiếm & Tuyết Ẩm Đao",
+    "level": 30,
+    "desc": "Đến Bái Kiếm Sơn Trang nhận thần binh truyền thuyết và lĩnh ngộ Vạn Kiếm Quy Tông.",
+    "dialogStart": "Thần binh chỉ nhận bậc anh hùng chân chính làm chủ nhân!",
+    "dialogComplete": "Thần binh đã nhận chủ, hãy tiến lên Thiên Môn và Cửu Không Vô Giới!",
+    "exp": 1000000,
+    "money1": 1000000,
+    "money2": 1000000,
+    "money3": 10000000,
+    "rewardItemIds": [
+      1004,
+      3004
+    ]
+  }
+]

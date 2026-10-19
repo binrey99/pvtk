@@ -1,0 +1,9 @@
+{
+  "name": "pvtk2-web-edition",
+  "version": "1.0.8",
+  "description": "Phong Vân Truyền Kỳ 2 (WorldOL v1.3 - vn.cmn.bokinhvan) Playable Web Edition reconstructed with REA",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ../server/index.js"
+  }
+}

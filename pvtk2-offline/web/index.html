@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phong Vân Truyền Kỳ 2 (WorldOL v1.3) — Web Edition (REA Verified)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- TOP HUD BAR -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <img src="assets/common/ti.png" alt="PVTK2 Logo" class="brand-logo" />
+      <div class="brand-title">
+        <h1>PHONG VÂN TRUYỀN KỲ 2 — WEB EDITION</h1>
+        <div class="sub" id="hudCharSummary">Đang tải nhân vật...</div>
+      </div>
+    </div>
+
+    <div class="hud-bars">
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-fill hp" id="hudHpFill" style="width: 100%;"></div>
+        <div class="stat-bar-label" id="hudHpLabel">HP: 0 / 0</div>
+      </div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-fill mp" id="hudMpFill" style="width: 100%;"></div>
+        <div class="stat-bar-label" id="hudMpLabel">MP: 0 / 0</div>
+      </div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-fill exp" id="hudExpFill" style="width: 45%;"></div>
+        <div class="stat-bar-label" id="hudExpLabel">EXP: 45%</div>
+      </div>
+    </div>
+
+    <div class="hud-currencies">
+      <div class="currency-pill">🪙 Vàng: <span class="val" id="hudGold">0</span></div>
+      <div class="currency-pill">🥈 Đồng: <span class="val" id="hudSilver">0</span></div>
+      <div class="currency-pill">💎 Kim Cương: <span class="val" id="hudDiamond">0</span></div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT COLUMN: 5-LAYER WORLD MAP & 34-POS BATTLE CANVAS + COMBAT LOG -->
+    <section class="viewport-col">
+      <div class="canvas-card">
+        <div class="canvas-header">
+          <span class="map-title" id="mapTitleLabel">[Map 101] Tuyệt Tâm Cốc</span>
+          <span class="coords" id="mapCoordsLabel">Tọa độ: (11, 9)</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="528" height="384"></canvas>
+        </div>
+        <div class="canvas-overlay-controls">
+          <div style="display:flex; gap:5px; flex-wrap:wrap;">
+            <button class="btn btn-gold btn-sm" id="btnStartWildBattle">⚔️ Tuần Tiễu Quái</button>
+            <button class="btn btn-red btn-sm" id="btnStartBossBattle">👹 Khiêu Chiến Boss Map</button>
+            <button class="btn btn-purple btn-sm" id="btnManualAttack">⚡ Ra Đòn Hiệp Này</button>
+          </div>
+          <div style="display:flex; gap:5px;">
+            <button class="btn btn-green btn-sm" id="btnToggleAutoBattle">Auto Chiến Đấu: BẬT</button>
+            <button class="btn btn-sm" id="btnToggleWeather">🌧️ Thời Tiết</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="combat-log-card">
+        <div class="combat-log-header">
+          <span>📜 Nhật Ký Chiến Đấu & Hệ Thống (Chuẩn Công Thức APK Gốc)</span>
+          <button class="btn btn-sm" id="btnClearLog">Xóa Log</button>
+        </div>
+        <div class="combat-log-body" id="combatLogBody"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN: FULL GAMEPLAY TABS -->
+    <section class="systems-col">
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="char">👤 Nhân Vật & 12 Phái</button>
+        <button class="nav-tab" data-tab="equip">🛡️ 18 Trang Bị & Rèn</button>
+        <button class="nav-tab" data-tab="bag">🎒 Túi & 9 Kho Di Động</button>
+        <button class="nav-tab" data-tab="skill">⚡ Kỹ Năng & Thiên Phú</button>
+        <button class="nav-tab" data-tab="pet">🐾 Thú Cưng & Lính Thuê</button>
+        <button class="nav-tab" data-tab="country">🏯 Thành Thị & Quốc Gia</button>
+        <button class="nav-tab" data-tab="maps">🗺️ Bản Đồ Thế Giới</button>
+        <button class="nav-tab" data-tab="minigames">🎮 4 Mini-Games</button>
+        <button class="nav-tab" data-tab="gm">🛠️ GM & Tài Nguyên</button>
+      </nav>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="pane-char"></div>
+        <div class="tab-pane" id="pane-equip"></div>
+        <div class="tab-pane" id="pane-bag"></div>
+        <div class="tab-pane" id="pane-skill"></div>
+        <div class="tab-pane" id="pane-pet"></div>
+        <div class="tab-pane" id="pane-country"></div>
+        <div class="tab-pane" id="pane-maps"></div>
+        <div class="tab-pane" id="pane-minigames"></div>
+        <div class="tab-pane" id="pane-gm"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="gamedata.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

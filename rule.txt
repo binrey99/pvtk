@@ -1,0 +1,505 @@
+# Báo Cáo Phân Tích Dịch Ngược Toàn Diện: Phong Vân Truyền Kỳ 2 (`PVTK2v1.apk`)
+
+> [!IMPORTANT]
+> **Thông tin Định danh & Hồ sơ Bằng chứng (REA Evidence Provenance)**
+> - **Tệp gốc**: [PVTK2v1.apk](file:///D:/REA/app/PVTK2v1.apk)
+> - **SHA-256**: `e69f2434d3e402389f15f3e9d7c1326ca5a93765f7e6867a5494c77752b5b0c2`
+> - **Kích thước**: `55,637,584` bytes (~53.06 MB)
+> - **Định dạng**: Android Application Package (`apk` / ZIP container)
+> - **Tên gói (Package Name)**: `vn.cmn.bokinhvan` — **Tên hiển thị**: `Phong Vân Truyền Kỳ 2` (` Thế Giới OL ` / `世界OL` v1.3)
+> - **Phiên bản**: `versionName = "1.0.8"`, `versionCode = 108`, `minSdkVersion = 21` (Android 5.0), `targetSdkVersion = 33` (Android 13)
+> - **Thư mục giải nén toàn bộ (9,408 tệp)**: [rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde)
+> - **Thư mục dữ liệu bóc tách chuyên sâu (Scratch)**: [scratch](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch)
+> - **REA Evidence IDs**:
+>   - `inspect_artifact`: `ev_7bc2aaed0aece2d8997dcf6f6e11f5dd4b38bbe272895e2e707ddb49b33726e6` (parent `ev_0781a32e7393a45a3d068b4f818bb0af609fe427d5dfeefd8db4a18adc3a726e6`, inventory `ev_6b54cd187b7c0c23ed98a6ccfbaeeb891b8008581dfd7ea34d3cd4d9b9195464`, manifest `agm_96aca531929d26f726a6cbe6d2be4fb00dc9f31be3c2202127cdafbeef3a3b73`)
+>   - `extract_artifact`: `ev_f0013ab025779a770f13cf061d24445506a788077fe15f0c51417f46619fb6d7` (`aex_9465e1efe59fac080bd16c2201dec3cc8c15a799fc6d8e741c2e9b6549c667ed`)
+>   - `project_android_application_graph`: `ev_70f7584f5ea85bdfa7065dc35a078d4f55946ffbc9d7e86fd5297180ef54c783` (`adp_c60f675b18116c42c62102a3e5b0015b680f3239d31273ea77ed73ccd38ab735`) — lưu tại [android_graph.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/android_graph.json)
+>   - `inspect_go_binary` / `inspect_rust_binary` trên `libMesgLogSdk.so`: `ev_c53bef69a2d1925029e8a3b885802792378a1d3ec2918f9ae95d2ccfffe151ac`, `ev_72484c2b922c8080ba77d05b6722bf99fa17633db289c46b4767db8f3d61d810`
+>   - `export_evidence_bundle`: [evidence_bundle.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/evidence_bundle.json)
+
+---
+
+## PHẦN 1: CẤU TRÚC ỨNG DỤNG (APPLICATION ARCHITECTURE)
+
+### 1.1. Tổng quan Bố cục Tệp APK (**Observed**)
+Từ đồ thị cấu trúc của REA (`inspect_artifact` — **8,405** nút nội dung duy nhất trên tổng số **9,408** tệp, **0** mâu thuẫn toàn vẹn), dung lượng giải nén của APK là **67,729,854 bytes (~64.59 MB)**, được phân bổ như sau:
+
+| Vị trí trong APK | Tệp giải nén / Bóc tách | Số tệp | Dung lượng (Bytes) | Nội dung chính |
+| :--- | :--- | ---: | ---: | :--- |
+| `AndroidManifest.xml` | [AndroidManifest.decoded.xml](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/AndroidManifest.decoded.xml) | 1 | 30,276 | Khai báo package `vn.cmn.bokinhvan`, 15 quyền hệ thống, 13 Activity, 9 Service, 7 Receiver, 5 Provider. |
+| `classes.dex` | [classes.dex](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/classes.dex) | 1 | 10,035,888 | **7,127 lớp** thư viện AndroidX, Google Play Services, Firebase, Facebook SDK, Adjust, Retrofit2, OkHttp3, Glide, ZXing. |
+| `classes2.dex` | [classes2.dex](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/classes2.dex) | 1 | 5,863,296 | **3,465 lớp**, chứa toàn bộ **905 lớp mã nguồn chính của trò chơi và SDK**: Engine game (`com.hz.*`), bộ giả lập J2ME (`com.lori.*`, `javax.microedition.*`), CMN SDK (`online.cmn.sdk.*`), và OneSignal (`com.onesignal.*`). |
+| `classes3.dex` | [classes3.dex](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/classes3.dex) | 1 | 212,248 | **236 lớp** phụ trợ Google Billing / Play Core. |
+| `assets/` | [asset_inspection.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/asset_inspection.json) | 8,348 | 34,820,400 | Toàn bộ dữ liệu tài nguyên trò chơi: hoạt ảnh (`ani/`), tài nguyên dùng chung (`common/`), gói gạch bản đồ (`map/`), giao diện nhị phân (`ui/`), cấu hình J2ME (`jad.properties`). |
+| `res/` | [decoded_layouts.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/decoded_layouts.json) | 1,004 | 3,128,437 | Layout XML của CMN SDK (`activity_*.xml`, `dialog_*.xml`), giao diện cầu nối J2ME (`midp*.xml`, `splash.xml`), icon và drawable. |
+| `resources.arsc` | [arsc_resolved.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/arsc_resolved.json) | 1 | 2,000,728 | Bảng tài nguyên đã biên dịch (**4,462** chuỗi trong string pool, cấu hình SDK, chuỗi thông báo Việt hóa). |
+| `lib/` | [elf_libMesgLogSdk.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/elf_libMesgLogSdk.json) | 4 | 10,803,560 | Thư viện gốc C++ `libMesgLogSdk.so` cho 4 kiến trúc (`arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`). |
+| `META-INF/` | `META-INF/CERT.RSA` | 28 | 666,018 | Chữ ký APK và siêu dữ liệu dịch vụ. |
+| `kotlin/` & gốc | `DebugProbesKt.bin`, `*.properties` | 19 | 169,003 | Metadata Kotlin runtime, Firebase/Play Services properties. |
+
+### 1.2. Kiến trúc Đa tầng: J2ME-to-Android Wrapper + CMN SDK (**Observed & Derived**)
+Phân tích mã bytecode trong [classes2.dex](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/classes2.dex) (bóc tách tại [target_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/target_classes_summary.json) và [engine_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/engine_classes_summary.json)) chứng minh rằng **Phong Vân Truyền Kỳ 2** không phải là một trò chơi viết bằng Unity hay Cocos2d, mà là bản chuyển đổi (port) trực tiếp từ tựa game J2ME kinh điển **Thế Giới OL (`世界OL` / `WorldOL` v1.3, ©2011 Good Game)** chạy trên một **Lớp Giả lập J2ME-to-Android tùy chỉnh (`com.lori.*` & `javax.microedition.*`)**, kết hợp với **CMN Online SDK (`online.cmn.sdk.*`)**.
+
+```mermaid
+flowchart TD
+    subgraph AndroidOS["Hệ điều hành Android (API 21-33)"]
+        Launcher["Launcher Intent (MAIN / LAUNCHER)"]
+        SQLite[("SQLite DB: recordstoredb")]
+        CanvasView["Android View / SurfaceCanvas"]
+    end
+
+    subgraph BridgeLayer["Tầng Cầu Nối J2ME-Android (com.lori.* & javax.microedition.*)"]
+        Pip["com.lori.app.PipActivity (Main Activity)"]
+        CMNMgr["com.lori.common.CMNManager"]
+        MIDlet["javax.microedition.midlet.MIDlet"]
+        LCDUI["javax.microedition.lcdui.* (Display, Canvas, Graphics, Image, Font, Form)"]
+        RMS["javax.microedition.rms.RecordStore + SqlDao"]
+        GCF["javax.microedition.io.Connector (Socket & HttpConnection)"]
+    end
+
+    subgraph CMNSDK["Tầng CMN Online SDK v1.0.2 (online.cmn.sdk.*)"]
+        SDKMgr["SDKManager (Auth, CheckUpdate, PopupEvent)"]
+        IAP["payment.IAPManager (Google Play Billing)"]
+        Adjust["Adjust + OneSignal + Firebase + Facebook SDK"]
+    end
+
+    subgraph GameEngine["Tầng Lõi Game WorldOL / PVTK2 (com.hz.*)"]
+        GameMIDlet["com.hz.GameMIDlet"]
+        GameCanvas["com.hz.main.GameCanvas (Vòng lặp chính & Render)"]
+        GameWorld["com.hz.main.GameWorld (Trạng thái thế giới)"]
+        MsgHandler["com.hz.main.MsgHandler (Giao thức mạng TCP/HTTP)"]
+        ResHandler["com.hz.main.ResourceHandler (Nạp .pn/.pd/.spr/.fr/.pl/.m)"]
+        UIHandler["com.hz.ui.UIHandler + XmlParse (Giải mã 165 tệp .ui)"]
+        CoreModels["com.hz.core.* (113 lớp Gameplay, Battle, City, Country, Pet...)"]
+    end
+
+    Launcher --> Pip
+    Pip -->|Khởi tạo & Kiểm tra cập nhật| CMNMgr
+    CMNMgr <--> SDKMgr
+    SDKMgr <--> IAP
+    SDKMgr <--> Adjust
+    Pip -->|Đọc assets/jad.properties| MIDlet
+    MIDlet -->|Khởi chạy MIDlet-Class| GameMIDlet
+    GameMIDlet --> GameCanvas
+    GameCanvas --> GameWorld
+    GameCanvas --> UIHandler
+    GameCanvas --> ResHandler
+    GameWorld <--> MsgHandler
+    GameWorld <--> CoreModels
+    GameCanvas --> LCDUI --> CanvasView
+    RMS --> SQLite
+    MsgHandler --> GCF
+```
+
+#### Phân rã 905 Lớp Mã nguồn trong `classes2.dex` ([packages_breakdown.txt](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/packages_breakdown.txt)):
+1. **Engine Trò chơi (`com.hz.*` — 205 lớp)**:
+   - `com.hz` (1 lớp): `GameMIDlet` — Điểm nhập J2ME (`startApp`, `pauseApp`, `destroyApp`).
+   - `com.hz.main` (15 lớp): `GameCanvas` (vòng lặp game, xử lý chạm/phím, vẽ khung hình), `GameWorld` (quản lý trạng thái game), `MsgHandler` (đóng gói/giải mã toàn bộ gói tin mạng), `ResourceHandler` (nạp tài nguyên nén), `GameForm`, `ZoomHandler`, `Control`, `SoftBox`, `Snippet`, `WorldMessage`, `ServerInfo`, `WaterPipeGame`, `Workers`.
+   - `com.hz.core` (113 lớp): Toàn bộ các thực thể và hệ thống gameplay (`Define`, `ProtocolDefine`, `Battle`, `PlayerBag`, `Skill`, `Item`, `MyPet`, `Mercenary`, `City`, `Country`, `CountryWar`, `CountryBoss`, `TeamBoss`, `Arena`, `NewArena`, `SkyArena`, `Escort`, `NewEscort`, `Enchant`, `Furnace`, `Gem`, `Identify`, `Mount`, `Talent`, `MarryWish`, `Master`, `Photo`, `PlayerCard`, `RedPacket`, `FilpGame`, `LinkupGame`, `GuessGame`, `LotteryDraw`...).
+   - `com.hz.actor` (9 lớp): `Model`, `Player`, `NPC`, `Monster`, `MyPet`, `Mercenary`, `ListPlayer`, `Status`, `ActorEvent`.
+   - `com.hz.battle` (11 lớp): `BattlePanel`, `BattleAniEngine`, `AnimationControl`, `AniResource`, `CriticalEffect`, `NumberEffect`, `Playerachi`, `ShakeEffect`, `SkyChangeEffect`, `StatusEffect`, `TargetSelectEffect`.
+   - `com.hz.map` (6 lớp): `GameMap`, `MapLayer`, `TileLayer`, `PixelLayer`, `PlayerLayer`, `MapImage`.
+   - `com.hz.sprite` (5 lớp): `GameSprite`, `FragmentFile`, `FragmentData`, `Frame`, `Animation`.
+   - `com.hz.ui` (24 lớp): `UIHandler`, `UIDefine`, `UIAction`, `PlayerInfoUIAction`, `UIObject`, `XmlParse` và 18 lớp widget giao diện (`GWindow`, `GContainer`, `GWidget`, `GLinePanel`, `GTextArea`, `GLabel`, `GPixelLabel`, `GIcon`, `GGameIcon`, `GImageNumer`, `GGameBar`, `GSpinner`, `GScrollBar`, `GMenu`...).
+   - `com.hz.net` (6 lớp): `Message`, `SocketServer`, `HttpConnector`, `HttpRequest`, `GZIP`, `ClientUpdater`.
+   - `com.hz.string` (3 lớp): `PixelFont`, `PixelString`, `WorldString`.
+   - `com.hz.common` (5 lớp) & `com.hz.test` (7 lớp): `GameText`, `GameText2`, `Tool`, `Utilities`, `Const`, cùng các công cụ kiểm thử giao diện (`DebugMenu`, `TestData`, `TestUI`).
+2. **Tầng Giả lập J2ME sang Android (`com.lori.*` — 56 lớp & `javax.microedition.*` — 57 lớp)**:
+   - `com.lori.app.PipActivity`: Activity chính khởi chạy ứng dụng. Khi chạy `onCreate()` và `createMIDlet()`, nó nạp tệp [assets/jad.properties](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/jad.properties), đọc thuộc tính `MIDlet-Class: com.hz.GameMIDlet` và khởi tạo lớp này qua Reflection (`Class.forName`).
+   - `javax.microedition.rms.RecordStore` & `javax.microedition.rms.SqlDao`: Chuyển đổi hệ thống lưu trữ RMS của J2ME sang cơ sở dữ liệu SQLite của Android tên là **`recordstoredb`** (gồm 2 bảng `recordstore` và `record`).
+   - `javax.microedition.lcdui.*`: Ánh xạ `Canvas`, `Graphics`, `Image`, `Font` của J2ME trực tiếp lên `android.graphics.Canvas`, `Bitmap`, `Paint`; ánh xạ các biểu mẫu nhập liệu (`Form`, `TextBox`, `TextField`, `ChoiceGroup`, `Gauge`, `Alert`) sang các tệp giao diện Android tại `res/layout/midp*.xml`.
+   - `com.lori.common.CMNManager` & `com.lori.common.Tool`: Cầu nối từ luồng J2ME sang UI Thread của Android để gọi đăng nhập CMN SDK, thanh toán IAP, mở máy ảnh/thư viện ảnh (`CameraListener`), và kiểm tra quyền (`PermissionsManager`).
+3. **Tầng CMN Online SDK (`online.cmn.sdk.*` — 587 lớp)**:
+   - Viết bằng Kotlin, cung cấp hệ thống quản lý tài khoản, bảo mật, thanh toán Google Play Billing (`IAPManager`), quảng cáo/sự kiện popup (`BannerDialog`), thông báo đẩy và theo dõi chiến dịch (Adjust, OneSignal, Firebase).
+
+### 1.3. Phân tích Thư viện Native `libMesgLogSdk.so` (**Observed**)
+REA (`inspect_go_binary` & `inspect_rust_binary`) xác nhận tệp [lib/arm64-v8a/libMesgLogSdk.so](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/lib/arm64-v8a/libMesgLogSdk.so) (SHA-256: `e05a91cfc1e7adc5b1e48aa50fdd54e081e5be1ce5da28c2b7c1d275a92db98bf`, 2,925,112 bytes) là thư viện ELF 64-bit biên dịch từ C/C++ (sử dụng tĩnh `libcurl` và `OpenSSL`), không phải Go hay Rust. Chi tiết bóc tách ELF được lưu tại [elf_libMesgLogSdk.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/elf_libMesgLogSdk.json):
+- **7 hàm JNI được xuất (Exported JNI Symbols)**:
+  - `Java_com_mesglog_sdk_MesgLog_FilterOut`
+  - `Java_com_mesglog_sdk_MesgLog_NativeInit`
+  - `Java_com_mesglog_sdk_MesgLog_SendAsciiLog`
+  - `Java_com_mesglog_sdk_MesgLog_SendHexLog`
+  - `Java_com_mesglog_sdk_MesgLog_SendLog`
+  - `Java_com_mesglog_sdk_MesgLog_SetGroupName`
+  - `Java_com_mesglog_sdk_MesgLog_SetLogTag`
+- **Chuỗi cấu hình nội bộ (`.rodata`)**: Phiên bản `3.0.1`, kết nối tới máy chủ thu thập log `la.vietid.net` và `http://lg1.logging.admicro.vn/_tracking1.gif`.
+- **Phát hiện quan trọng (**Derived**)**: Trong cả 3 tệp `classes*.dex`, hoàn toàn **không tồn tại** lớp Java `com.mesglog.sdk.MesgLog` hay bất kỳ lệnh `System.loadLibrary("MesgLogSdk")` nào. Đây là thư viện native còn sót lại từ bộ khung SDK cũ (di sản từ hệ thống logging của SohaGame/VCCorp/Admicro) được đóng gói vào thư mục `lib/` nhưng không được nạp lúc chạy.
+
+---
+
+## PHẦN 2: TẤT CẢ CHỨC NĂNG (ALL APPLICATION & GAME FEATURES)
+
+### 2.1. Chức năng Hệ thống & CMN SDK (`online.cmn.sdk.*` & `com.lori.common.CMNManager`)
+Dữ liệu cấu hình trích xuất từ [arsc_resolved.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/arsc_resolved.json) và [ConstantSDK_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/ConstantSDK_statics.json):
+1. **Xác thực & Quản lý Tài khoản (`AuthActivity`, `LoginFragment`, `RegisterFragment`)**:
+   - Đăng nhập bằng tài khoản CMN, Đăng ký nhanh, Chơi ngay (Guest/Tourist), Đăng nhập qua **Facebook** (`facebook_app_id = 3501552463420291`) và **Google Sign-In**.
+   - Quản lý bảo mật tài khoản (`ContainAccountInfoActivity`): Cập nhật CMND/CCCD (`UpdateIdentifierFragment`), Liên kết Email (`UpdateEmailFragment`), Liên kết Số điện thoại OTP (`UpdatePhoneFragment`, `VerifyOTPFragment`), Đổi mật khẩu (`ChangePassFragment`), và Xóa/Hủy tài khoản.
+   - Chuyển đổi tài khoản nhanh trong game (`CMNManager.SwitchAccount`).
+2. **Thanh toán Nội ứng dụng (`PaymentActivity`, `IAPManager`)**:
+   - Tích hợp Google Play Billing (`com.android.vending.billing.InAppBillingService.BIND`).
+   - Luồng thanh toán: Game gửi yêu cầu nạp (`CG_BILL_YUENAN = 17001`, `CG_BILL_YUENAN_ORDER = 17002`) -> gọi `CMNManager.Payment(context, packageId, orderId, serverId, otherData)` -> `SDKManager.payment()` -> đối soát giao dịch với máy chủ CMN.
+3. **Cấu hình Từ xa, Cập nhật & Sự kiện (`SDKManager`, `ApiService`)**:
+   - Máy chủ cấu hình SDK: `https://apisdk.cmn.online/config.html/` và `https://game.cmn.vn/sdk-mobile/`.
+   - Mã định danh đối tác: `SDK_APP_KEY = "47c1317e3c324a62583a27a4d6eb5d8f"`, `cp = 120` (trong [jad.properties](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/jad.properties)), mã phiên bản kênh Việt Nam `Edition = 360075`.
+   - Kiểm tra cập nhật (`CheckUpdate`), hiển thị bảng tin/sự kiện (`ShowPopupEvent` -> `https://apisdk.cmn.vn/sdkbanner/index.html`), điều khoản dịch vụ (`https://pvtk2.cmn.vn/pvtk2/policy.html`), và đánh giá ứng dụng nhận thưởng (`FeedbackApp`).
+4. **Thông báo Đẩy & Phân tích Hành vi**:
+   - **OneSignal** (`ONESIGNAL_APP_ID = "1db490d1-94e7-4ae5-bd7b-c0384e14cace"`), **Firebase Cloud Messaging**, và **Adjust SDK** (`config_adjust_token = "r3db70284c80"`).
+
+### 2.2. Giao thức Mạng & Máy chủ Trò chơi (`com.hz.main.MsgHandler` & `com.hz.net.*`)
+Trích xuất từ [engine_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/engine_classes_summary.json) và [ProtocolDefine_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/ProtocolDefine_statics.json):
+- **Địa chỉ Máy chủ Game cố định trong mã nguồn (`MsgHandler`)**:
+  - Máy chủ 1: `103.68.254.52`
+  - Máy chủ 2: `123.30.133.164`
+- **Cơ chế Truyền tải Kép (Dual Transport)**:
+  1. **TCP Socket Thời gian thực (`com.hz.net.SocketServer`)**: Kết nối `socket://<ip>:30000` (hoặc cổng động theo phân tuyến `ServerInfo`), sử dụng luồng đọc/ghi nhị phân đóng gói trong đối tượng `com.hz.net.Message`.
+  2. **HTTP Polling / Fallback (`com.hz.net.HttpConnector`)**: Giao tiếp qua `http://<ip>:8079/A?S=<session>&E=360075&P=...` với `User-Agent: Profile/MIDP-2.0 Configuration/CLDC-1.0`. Hỗ trợ tự động chuyển đổi qua WAP proxy `http://10.0.0.172:80` (header `X-Online-Host`) khi mạng không ổn định.
+  3. **Máy chủ Album Ảnh (`com.hz.core.Photo`)**: Kết nối riêng qua cổng `28080` (`http://<ip>:28080/photo?P=...&S=...&D=...`) để tải lên và tải xuống ảnh đại diện/album của người chơi.
+- **Tập lệnh Giao thức (`com.hz.core.ProtocolDefine` — hơn 350 mã gói tin)**:
+  - **Nhóm Login/Account (`1–3`, `5000–5017`, `10001–10026`)**: Kiểm tra phiên bản (`LC_CHECKEDITION = 5000`), lấy danh sách cụm máy chủ & kênh (`LC_GAME_AREALIST = 5004`, `LC_GAME_LINELIST = 5005`), đăng nhập/tạo/xóa/khôi phục nhân vật (`10001–10005`), khóa bảo vệ nhân vật (`10009`, `11043–11047`).
+  - **Nhóm Bản đồ & Cảnh (`10501–10536`)**: Vào/rời bản đồ (`10501`, `10502`), di chuyển (`10504`), tìm đường nhiệm vụ (`10518`), tải tài nguyên động từ máy chủ (`CG_SCENE_GETSPR = 10520`, `CG_SCENE_GET_PET_RESOURCE = 10534`, `CG_SCENE_GET_IMAGE_RESOURCE = 10536`).
+  - **Nhóm Nhân vật, Thư, Album, Thành tựu, VIP (`11003–11170`)**: Cộng điểm tiềm năng (`11003`), hòm thư (`11007–11014`), bình luận/thả tim album ảnh (`11015–11020`), thành tựu (`11023–11025`), danh hiệu (`11026–11027`), **mua bán nhân vật** (`CG_ACTOR_SELL_* = 11039–11049`), VIP (`11053–11058`, `11160–11161`), vòng quay đăng nhập (`11063–11065`, `11106–11107`), kho di động (`11166–11167`).
+  - **Nhóm Chế tạo, Hợp thành, Phụ ma, Lò luyện (`11501–11529`)**: Đồ bộ (`11501`), phân giải (`11502`), hợp thành trang bị & pet (`11503–11513`), lò luyện (`11514–11518`), phụ ma & sạp phụ ma (`11519–11526`), tiến bậc & thăng sao trang bị (`11527–11528`, `11506`), khảm ngọc (`11507–11508`).
+  - **Nhóm Túi đồ, Cửa hàng, Kho, Giám định, Biến thân (`12001–12057`)**: Túi đồ (`12001–12003`), cửa hàng NPC/Điểm (`12004–12006`, `12020–12021`), bày bán cá nhân (`12007–12014`), giám định (`12015`, `12040–12041`), kho thường/VIP/Cao cấp/Di động (`12017–12018`, `12024–12026`, `12050–12057`), tự động bán đồ (`12036–12037`), thẻ biến thân quái vật (`12042–12043`).
+  - **Nhóm Chiến đấu & Đấu trường (`12501–12532`)**: Chiến đấu PVE cục bộ (`12501–12502`), chiến đấu từ xa/PVP (`12503–12516`),观战/xem trận đấu (`12508–12509`), Đấu trường Tranh Bá (`12517–12532`).
+  - **Nhóm Sách Quái vật (`13001–13002`)**, **Tổ đội, Trò chuyện, Sở Giao Dịch, Quan hệ Xã hội, Kết hôn, Lì xì (`13501–13559`)**.
+  - **Nhóm Kỹ năng, Trận pháp, Thiên phú (`14001–14019`)**.
+  - **Nhóm Nhiệm vụ, Áp tiêu, Phó bản Đội, Đấu trường, Quốc Gia Công Thành, Độ sôi nổi, Chiến trường (`14501–14590`)**.
+  - **Nhóm Quốc gia & Quốc chiến (`15001–15077`)**, **Thú cưng & Lính đánh thuê (`15501–15517`)**, **Hệ thống & Cẩm nang Raiders (`16001–16019`)**, **Mini-games (`17501–17509`)**.
+
+### 2.3. Danh mục Toàn bộ Hệ thống Chức năng Trong Game (**Observed**)
+Từ [UIDefine_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/UIDefine_statics.json) và [all_strings_by_class.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/all_strings_by_class.json), trò chơi bao gồm **22 nhóm chức năng lớn**:
+1. **Hệ thống Nhân vật**: Tạo nhân vật, chọn Chủng tộc & Nghề nghiệp, Chuyển chức/Chuyển phái tự do, Cộng điểm thuộc tính, Đổi tên, Đổi giới tính, Khóa mật khẩu an toàn 2 lớp & câu hỏi bảo mật, Tự động tìm đường (Auto-pathfinding), Tự động đánh (Auto-battle).
+2. **Hệ thống Giao dịch Nhân vật (`ActorSell`)**: Cho phép rao bán và mua trực tiếp nhân vật đang sở hữu ngay trên danh sách chọn nhân vật thông qua kiểm duyệt của hệ thống.
+3. **Hệ thống Trang bị & Chế tạo**: Giám định (truyền thống & tiến bậc), Cường hóa Thăng sao (1–5 sao) & Tiến bậc Tăng sao, Khảm/Tháo/Thay thế Bảo thạch, Hợp thành Trang bị, Tiến bậc Trang bị, Phân giải Trang bị, Sửa chữa (cá nhân & toàn đội), So sánh trang bị, Hiệu ứng Đồ bộ (Suit).
+4. **Hệ thống Phụ Ma (`Enchant`)**: Hấp thụ trang bị để tích lũy điểm Phụ Ma (tối đa 10,000 điểm), yểm bùa thuộc tính vào trang bị, và mở **Sạp Phụ Ma** (`EnchantShop`) để làm dịch vụ phụ ma thuê cho người chơi khác.
+5. **Hệ thống Lò Luyện (`Furnace`)**: Thuê/mua Nghệ Nhân (`Craftsman`) theo cấp độ để luyện hóa trang bị và nguyên liệu hiếm.
+6. **Hệ thống Túi đồ & 9 Kho Di Động (`PlayerBag` & `Storage`)**: Túi đồ mở rộng, Kho cá nhân, Kho VIP, Kho VIP Cao Cấp, Kho Quốc Gia, và **9 Kho Di Động** (`Kho di động 1` -> `Kho di động 9`), kèm tính năng Tự động bán đồ rác (`AutoSell`).
+7. **Hệ thống Kỹ năng, Trận pháp & Thiên phú (`Skill`, `Formation`, `Talent`)**: Kỹ năng Chủ động / Tự động / Bị động / Trận pháp, Học kỹ năng từ Sách/Cuộn/Học viện Quốc gia, Xóa/Quên kỹ năng theo cấp, và Cây Thiên Phú 3 nhánh (Công kích, Phòng thủ, Thông dụng).
+8. **Hệ thống Thú cưng (`MyPet`, `PetComposite`, `PetEvolve`, `PetSeal`)**: Ấp trứng, Xuất chiến / Hợp thể (Phụ thân), Trưởng thành, Lĩnh ngộ thiên phú, Tái sinh (Reset cấp 1), Hợp thành Pet, Tiến hóa Pet (`PetEvolve`), Phong ấn kỹ năng Pet thành sách (`PetSeal`), Kho Pet Quốc gia.
+9. **Hệ thống Thú cưỡi (`Mount` / `Ride`) & Thẻ Biến Thân (`TurnMonster`)**: Thú cưỡi gia tăng tốc độ di chuyển và chỉ số chiến đấu; Thẻ biến thân cho phép hóa hình thành quái vật/NPC với bộ kỹ năng và ngoại hình riêng.
+10. **Hệ thống Lính Đánh Thuê (`Mercenary` / `Soldier`)**: Chiêu mộ nhóm lính đánh thuê gồm Chủ tướng + Phó tướng, thiết lập chiến thuật (Mãnh công, Trị liệu, Bảo vệ) đi kèm nhân vật trong trận đấu.
+11. **Hệ thống Thành trì Cá nhân (`City`)**: Mỗi người chơi có thể sở hữu thành trì riêng, đổi tên thành, đổi bảng hiệu, thu thuế/rút tiền từ thành trì.
+12. **Hệ thống Quốc gia (`Country`)**: Lập quốc, xây dựng và nâng cấp **13 công trình quốc gia** (Hoàng Cung, Quân Doanh, Nhà Dân, Xưởng Gỗ/Đá/Sắt, 4 Võ quán/Học viện kỹ năng, 3 Cửa hàng), hệ thống **11 cấp quan chức & tước vị**, thuế suất quốc gia, kho quốc gia, giao nhiệm vụ quốc gia, phát lệnh triệu tập (`Chỉ Lệnh Thư`), và liên minh quốc gia (`Thế lực đồng minh`).
+13. **Hệ thống Quốc Chiến (`CountryWar` & `WarBuild` & `WarCommand`)**: Chiến dịch công thành 10 hiệp giữa các quốc gia/liên minh với 6 mục tiêu kiến trúc (Hoàng Cung, Tường Thành Trên/Dưới, Tiễn Tháp Trên/Giữa/Dưới), Quân lệnh chiến thuật (`WarCommand`), và cơ chế cá cược/trừng phạt quốc gia thua cuộc.
+14. **Hệ thống Phó bản & Boss (`TeamBoss`, `CountryBoss`, `GridEctype`)**: Phó bản đoàn đội di chuyển trên bàn cờ ô vuông (`Grid`), Quốc gia công thành chống quái vật xâm lược.
+15. **Hệ thống Đấu trường & Chiến trường (`Arena`, `NewArena`, `SkyArena`, `Battleground`)**: Đấu trường truyền thống, Đấu trường Tranh Bá xếp hạng lực chiến, Đấu trường Thiên Không (leo tháp nhiều tầng), và Chiến trường Phe phái (`Battleground` / `Battlespace`) chiếm Pháo Đài & Tháp Canh tích điểm Vinh Dự.
+16. **Hệ thống Nhiệm vụ, Cột mốc & Độ Sôi Nổi (`Mission`, `Milestone`, `Vitality`, `Daily`)**: Nhiệm vụ chính tuyến/phụ tuyến/ngẫu nhiên/quốc gia, nhiệm vụ ủy thác Offline, Cột mốc trưởng thành (`Milestone`), Độ sôi nổi hàng ngày (`Vitality`), và tính năng Càn quét nhanh (`Mopping`).
+17. **Hệ thống Áp Tiêu & Cướp Tiêu (`Escort` & `NewEscort`)**: Vận tiêu đơn hoặc tổ đội trên bản đồ bàn cờ với các sự kiện ngẫu nhiên, thời tiết, cướp tiêu và bảng truy nã cướp tiêu.
+18. **Hệ thống Kinh tế & Giao dịch**: Bày bán cá nhân (`PlayerShop`), **Sở Giao Dịch (`Exchange`)** hỗ trợ cả đăng bán lẫn đăng thu mua vật phẩm tự động khớp lệnh, Giao dịch qua Thư (`Mail`), Cửa hàng Giảm giá (`DiscountShop`), Cửa hàng Đặc biệt.
+19. **Hệ thống Xã hội, Sư Đồ & Hôn Nhân**: Hảo hữu, Bạn thân (tăng độ thân mật theo từng phút), Hắc danh, **Sư Đồ (`Master`)**, **Đạo Sư (`Instructor`)**, **Kết Hôn (`Wedding` / `MarryWish`)** với 4 cấp độ hôn lễ, Thiệp cưới, Chúc phúc, Dịch chuyển tức thời tới Phu/Thê.
+20. **Hệ thống Album Ảnh, Thiệp & Tán Tỉnh (`Photo`, `PlayerCard`, `ChatUp`)**: Chụp ảnh từ Camera hoặc chọn từ Thư viện Android tải lên Album trong game, bình luận, tặng hoa/ném trứng, Yêu thầm (`Secret Love`), làm Thiệp cá nhân, và hệ thống Bắt chuyện/Tán tỉnh (`Accost` / `ChatUp`).
+21. **Hệ thống Phúc lợi, Lì xì & Xổ số (`RedPacket`, `LotteryDraw`, `LoginLotteryDraw`, `ColorBox`)**: Phát lì xì (May mắn, Khẩu lệnh, Chia đều) kèm pháo hoa, Vòng quay đăng nhập 16 ô, Rút thưởng may mắn, Hộp màu (`ColorBox`), Quà online, Quà tích lũy nạp & tiêu phí.
+22. **Hệ thống Cẩm nang & Bảng xếp hạng (`Raiders`, `MonsterBook`, `Rank`)**: Sách Minh Giám Quái Vật (`MonsterBook`), Cẩm nang hướng dẫn Nhân vật / Thú cưng / Thú cưỡi do người chơi & GM biên soạn có bình luận/bầu chọn (`Raiders`), và Bảng xếp hạng đa tiêu chí (`Top`).
+
+---
+
+## PHẦN 3: CHI TIẾT CƠ CHẾ GAMEPLAY (DETAILED GAMEPLAY MECHANICS)
+
+Toàn bộ dữ liệu dưới đây được trích xuất trực tiếp từ hằng số trong [Define_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/Define_statics.json), văn bản hệ thống trong [GameText_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/GameText_statics.json), và logic xử lý trong [all_strings_by_class.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/all_strings_by_class.json) (`com.hz.ui.PlayerInfoUIAction`, `com.hz.core.*`).
+
+### 3.1. Chủng Tộc & 12 Hệ Phái / Nghề Nghiệp (`Define.raceText` & `Define.jobText`)
+Trò chơi chia thế giới thành **2 Chủng tộc** (`Đông Phương` và `Tây Phương`) với **4 Nghề cơ bản** khi tạo nhân vật và **8 Hệ phái mở rộng / chuyển chức** (tổng cộng 12 định danh nghề nghiệp trong `Define.jobText`):
+
+| ID | Tên Nghề (`jobText`) | Phân loại & Chủng tộc gốc | Đặc trưng Chiến đấu & Vũ khí sở trường (Từ `Define` & `PlayerInfoUIAction`) |
+| :-: | :--- | :--- | :--- |
+| `0` | `Không` (`JOB_NONE`) | Mặc định | Trạng thái chưa phân nghề. |
+| `1` | **Hiệp Khách** (`JOB_XIASHI`) | Cơ bản — Đông Phương (`raceJob[0]`) | Thiên về **Nhanh Nhẹn (AGI)**, Tốc độ ra đòn, **Đâm (Pierce)**, **Số lần tấn công (Multi-hit)** và **Chí Mạng**. Sở trường: Kiếm đơn/song thủ, Đao, Vũ khí dài, Cung/Nỏ. |
+| `2` | **Tu Chân** (`JOB_XIUZHEN`) | Cơ bản — Đông Phương (`raceJob[0]`) | Thiên về **Thể Lực (STA)** và **Cảm Trí (WIS)**. Tinh thông Ngũ hành (Kim, Mộc, Thủy, Hỏa, Thổ), **Phù Chú (Talisman)** khống chế/phong ấn và **Chúc Phúc (Blessing)** hồi máu/hỗ trợ đồng đội. Sở trường: Pháp khí, Quạt, Trượng, Kiếm. |
+| `3` | **Chiến Sĩ** (`JOB_ZHANSHI`) | Cơ bản — Tây Phương (`raceJob[1]`) | Thiên về **Sức Mạnh (STR)** và **Thể Lực (STA)**. Sát thương **Chém (Slash)** cực đại, sinh lực dồi dào, sở hữu kỹ năng Vòng sáng (Aura) và giải trừ trạng thái xấu. Sở trường: Vũ khí nặng, Kiếm nặng, Đao nặng, Trường thương, Chùy. |
+| `4` | **Pháp Sư** (`JOB_FASHI`) | Cơ bản — Tây Phương (`raceJob[1]`) | Thiên về **Trí Lực (INT)** và **Cảm Trí (WIS)**. Sát thương **Ma Pháp (Magic)** diện rộng (AoE), Pháp lực (MP) cao, có **Thuẫn Pháp Lực (Mana Shield)** hấp thụ sát thương. Sở trường: Trượng, Pháp khí (Cầu), Quạt. |
+| `5` | **Hiền Giả** | Hệ phái mở rộng / Chuyển chức | Chuyên sâu hỗ trợ, Chúc phúc, Kháng phép và Thấu rõ. |
+| `6` | **Võ Thánh** | Hệ phái mở rộng / Chuyển chức | Bậc thầy cận chiến & Tay không / Võ thuật, phản kích và bạo kích cao. |
+| `7` | **Duệ Trí** | Hệ phái mở rộng / Chuyển chức | Nhánh chuyên sâu Trí Lực & Ma pháp cao cấp. |
+| `8` | **Dũng Mãnh** | Hệ phái mở rộng / Chuyển chức | Nhánh chuyên sâu Sức Mạnh & Phá giáp công kích. |
+| `9` | **Tấn Tiệp** | Hệ phái mở rộng / Chuyển chức | Nhánh chuyên sâu Tốc độ, Né tránh & Liên kích. |
+| `10` | **Vua Súng** | Hệ phái mở rộng / Chuyển chức | Chuyên sử dụng **Súng nhẹ / Súng 2 tay / Súng hạng nặng** (tấn công tầm xa & sát thương bạo phát). |
+| `11` | **Chùy Sư** | Hệ phái mở rộng / Chuyển chức | Chuyên sử dụng **Chùy nhẹ / Chùy 2 tay / Chùy nặng** (sát thương diện rộng & xuyên giáp). |
+| `12` | **Lam Vũ** | Hệ phái mở rộng / Chuyển chức | Hệ phái đặc biệt kết hợp linh hoạt vũ khí tầm xa và kỹ năng chiến thuật. |
+
+> [!TIP]
+> **Cơ chế Chuyển Phái Tự Do (`Chuyển chức`)**: Trong `com.hz.main.MsgHandler`, khi người chơi thực hiện chuyển chức (`BAG_CHANGE_JOB = 18`), hệ thống **tự động tẩy toàn bộ điểm thuộc tính và xóa toàn bộ kỹ năng của nghề cũ**, đồng thời **hoàn trả 100% Điểm Kỹ Năng (SP)** để người chơi tự do xây dựng nhân vật đa hệ (Hybrid build — đặc trưng nổi tiếng nhất của dòng game Thế Giới OL / PVTK).
+
+### 3.2. Hệ thống Thuộc Tính & Công Thức Chiến Đấu (`com.hz.ui.PlayerInfoUIAction`)
+Mỗi khi lên cấp (tối đa `MAX_LEVEL = 85` ở cấp thường, mở rộng tới cấp 90+), nhân vật nhận điểm tiềm năng phân bổ vào **5 Thuộc tính Gốc**:
+1. **Sức Mạnh (`STR`)**: Tăng mạnh **Lực Chém** (`ATK_TYPE_CHOP`), tăng vừa **Lực Đâm** (`ATK_TYPE_THRUST`).
+2. **Thể Lực (`STA`)**: Tăng **HP Tối đa**, lượng HP hồi mỗi hiệp, **Phòng thủ Chém** và **Phòng thủ Đâm**.
+3. **Nhanh Nhẹn (`AGI`)**: Tăng mạnh **Tốc độ ra đòn (Speed)**, **Né tránh (Dodge)**, **Lực Đâm**, **Chí Mạng (Crit)**, và tăng nhẹ **Lực Chém**.
+4. **Trí Lực (`INT`)**: Tăng mạnh **Lực Ma Pháp** (`ATK_TYPE_MAGIC`), **MP Tối đa**, và tăng nhẹ **Phòng thủ Ma Pháp**.
+5. **Cảm Trí (`WIS` / `SENSE`)**: Tăng **MP Tối đa**, lượng MP hồi mỗi hiệp, tăng mạnh **Phòng thủ Ma Pháp**, **Thấu Rõ (Insight)**, và tăng nhẹ **Lực Ma Pháp** cùng **Tốc độ ra đòn**.
+
+#### Công thức & Giới hạn (Cap) Chỉ số Chiến đấu Thứ cấp (**Observed in `PlayerInfoUIAction`**):
+- **3 Loại Sát thương & Phòng thủ Vật lý/Phép thuật**:
+  - **Chém (`Slash`)**: Sát thương dựa trên `STR (chính) + AGI (phụ) + Vũ khí`; giảm trừ bởi `Phòng thủ Chém`.
+  - **Đâm (`Pierce`)**: Sát thương dựa trên `STR + AGI + Vũ khí`; giảm trừ bởi `Phòng thủ Đâm` (rất mạnh khi đánh nhiều đòn liên tiếp).
+  - **Ma Pháp (`Magic`)**: Sát thương dựa trên `INT (chính) + WIS (phụ) + Vũ khí`; giảm trừ bởi `Phòng thủ Ma Pháp`.
+- **Số lần tấn công (`Lần tấn công` / Hit Count)**:
+  - Quy định số đòn đánh liên tiếp trong 1 lượt tấn công vật lý.
+  - **Công thức sát thương mỗi đòn**:
+    $$\text{Lực công mỗi đòn} = \frac{\text{Tổng Lực Công}}{ \text{Số lần tấn công} } + \text{Sát thương Vũ khí}$$
+- **Chí Mạng (`Critical`)**: Khi kích hoạt gây **150% (1.5x) sát thương**. Bị khắc chế bởi chỉ số `Miễn bạo kích` (`Kháng chí mạng`).
+- **Đỡ Đòn (`Block`)**:
+  - Khi đỡ đòn thành công, **chỉ nhận 50% sát thương**.
+  - **Giới hạn tối đa (Hard Cap)**: **70%** tỷ lệ đỡ đòn trong một hiệp.
+  - **Quy tắc suy giảm liên kích**: Từ lần đỡ đòn thứ 2 trở đi trong cùng một chuỗi đòn đánh nhiều lần (multi-hit), tỷ lệ đỡ đòn **giảm 10% cho mỗi đòn tiếp theo**. Bị khắc chế bởi chỉ số `Bỏ qua đỡ đòn`.
+- **Phản Kích (`Counter`) & Phản Ma (`Magic Reflect`)**:
+  - `Phản kích`: Đánh trả tự động khi bị tấn công cận chiến (tối đa **70%** xác suất). Bị khắc chế bởi `Bỏ qua phản kích` hoặc tấn công bằng vũ khí tầm xa.
+  - `Phản ma`: Phản lại đòn tấn công ma pháp của đối phương (tối đa **70%** xác suất). Bị khắc chế bởi `Bỏ qua hồi ma pháp`.
+- **Miễn Sát Thương (`Damage Reduction`)**:
+  - Giảm trực tiếp phần trăm sát thương phải nhận; **giới hạn tối đa 70%**. Bị khắc chế bởi `Bỏ qua miễn sát thương`.
+- **Thấu Rõ (`Insight` / `Động sát`)**:
+  - Cơ chế khắc chế Pháp Sư/Tu Chân: Khi kích hoạt Thấu Rõ, kỹ năng Ma pháp hoặc Phù chú của đối phương bị **vô hiệu hóa hoàn toàn**, đồng thời **tiêu hao MP của người thi triển** tương ứng với lượng sát thương/hiệu ứng đáng lẽ gây ra. Bị khắc chế bởi `Bỏ qua động sát`.
+- **Thuẫn Pháp Lực (`Mana Shield`)**:
+  - Chuyển hóa sát thương nhận vào thành tiêu hao MP theo tỷ lệ: **Mỗi 1 điểm sát thương tiêu tốn 1 điểm Pháp lực (MP) + 1 điểm Thuẫn Pháp Lực**.
+- **Hộ Thuẫn Miễn Thương (`Shield HP`)**: Lớp máu ảo hấp thụ sát thương trực tiếp trước khi trừ vào HP thực.
+- **Các chỉ số Xuyên phá & Đặc biệt khác**:
+  - `Phá giáp` (Giảm phòng thủ Chém/Đâm của mục tiêu), `Xuyên ma pháp` (Giảm phòng thủ Ma pháp của mục tiêu), `Ép chuẩn xác` (Giảm né tránh của mục tiêu), `Hút HP` (% sát thương cận chiến chuyển thành HP), `Hút MP` (% sát thương cận chiến chuyển thành MP), `Phù Chú` (Tăng tỷ lệ trúng bùa khống chế), `Chúc Phúc` (Tăng hiệu quả hồi máu/buff), `Kháng trạng thái` & `Bỏ qua kháng trạng thái`.
+
+### 3.3. Cấp Thần Kì (`Miracle Level` — `PlayerInfoUIAction`)
+Khi nhân vật đạt cấp độ tối đa, điểm kinh nghiệm nhận thêm không bị mất đi mà tự động chuyển hóa thành **EXP Thần Kì** để tăng **Cấp Thần Kì**:
+- Tăng trực tiếp giới hạn **HP Tối đa** và **MP Tối đa**.
+- Tăng tỷ lệ rơi vật phẩm khi đánh quái.
+- Giảm trực tiếp của mục tiêu đối phương: **Phòng thủ Chém, Phòng thủ Đâm, Phòng thủ Ma Pháp, Đỡ Đòn, Thấu Rõ, và Chí Mạng**.
+
+### 3.4. Hệ thống Vũ Khí (30 Loại), Trang Bị (18 Vị Trí) & Chế Tạo
+Từ `Define.ITEM_TYPE_*` ([Define_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/Define_statics.json)) và `Item.java`:
+- **30 Phân loại Vũ khí (Cận chiến & Tầm xa)**:
+  - **Nhóm Kiếm**: Kiếm đơn thủ (`id=1`), Kiếm song thủ (`id=2`), Kiếm nặng (`id=3`).
+  - **Nhóm Đao**: Đao đơn thủ (`id=4`), Đao song thủ (`id=5`), Đao nặng (`id=6`).
+  - **Nhóm Vũ khí Nặng & Dài**: Vũ khí nặng (`id=7`), Vũ khí dài / Trường thương (`id=8`, `20`).
+  - **Nhóm Cung & Nỏ**: Nỏ nhẹ (`id=9`), Nỏ 2 tay (`id=10`), Nỏ hạng nặng (`id=11`), Cung (`id=12`).
+  - **Nhóm Võ thuật & Pháp thuật**: Tay không / Quyền sáo (`id=13`), Trượng (`id=14`), Pháp khí / Cầu (`id=15`, `21`), Quạt (`id=28`).
+  - **Nhóm Súng & Chùy**: Súng nhẹ (`id=22`), Súng 2 tay (`id=23`), Súng hạng nặng (`id=24`), Chùy nhẹ (`id=25`), Chùy 2 tay (`id=26`), Chùy nặng (`id=27`).
+- **Các vị trí Trang bị trên người (`EQUIP_POS_*`)**: Đầu (Nón), Vai, Áo giáp, Lưng (Áo choàng/Cánh), Tay (Găng), Thắt lưng (Đai), Quần, Giày, Vũ khí tay phải, Vũ khí tay trái/Khiên, Nhẫn (x2), Dây chuyền, Hộ phù, Thời trang (`Fashion`), Thú cưỡi (`Mount`), Thú cưng (`Pet`), và Thẻ Biến Thân (`TurnMonster Card`).
+- **6 Phẩm chất Trang bị (`GRADE_*`)**:
+  - `0`: Thường (Trắng) — `1`: Tinh chế (Lục) — `2`: Hiếm có (Lam) — `3`: Sử thi (Tím) — `4`: Truyền thuyết (Cam) — `5`: Thần thoại (Đỏ/Vàng).
+- **Chuỗi Gia cường Trang bị**:
+  1. **Giám định (`Identify`)**: Trang bị rơi ra ở trạng thái chưa giám định; dùng Cuộn Giám Định hoặc Chìa khóa cao cấp để mở thuộc tính ẩn (`Giám định truyền thống` & `Giám định tiến bậc`).
+  2. **Thăng sao (`Ascension Star` / `Advance Star`)**: Cường hóa từ 1 đến 5 sao (`ITEM_MAX_STAR = 5`) và **Tiến bậc tăng sao** (`CG_ADVANCE_STAR = 11528`), có cơ chế **Bảo hiểm tinh luyện** tránh tụt sao.
+  3. **Khảm Bảo Thạch (`Gem Inlay`)**: Đục lỗ và khảm các loại ngọc thuộc tính (`CG_REPLACE_INLAY_GEM = 11507`).
+  4. **Phụ Ma (`Enchant`)**: Phân hủy trang bị thừa lấy điểm Phụ Ma (tối đa 10,000 điểm) để ép dòng thuộc tính phụ ma vào trang bị chính.
+  5. **Hợp thành & Tiến bậc (`Composite` & `Equipment Upgrade`)**: Ghép nguyên liệu/trang bị cấp thấp lên cấp cao hơn tại xưởng hoặc Lò Luyện (`Furnace`).
+
+### 3.5. Hệ thống Chiến Đấu Theo Lượt (`com.hz.core.Battle` & `com.hz.battle.*`)
+- **Bố cục Trận đấu (`Battle.MAX_POS = 34`)**:
+  - Chiến đấu theo lượt (Turn-based) chia làm 2 phe Trái - Phải. Mỗi bên bố trí tối đa 5 thành viên chính + Thú cưng/Lính đánh thuê theo hàng Trước - Sau.
+  - Thời gian suy nghĩ mỗi hiệp: **30 giây** (`MAX_ROUND_WAIT_TIME = 30`). Nếu bật **Auto-battle**, nhân vật tự động xuất chiêu theo kỹ năng tự động đã cài đặt.
+- **39 Phạm vi Mục tiêu Kỹ năng (`Define.SKILL_AREA_*`)**:
+  - Đơn mục tiêu (`SINGLE`), 2 mục tiêu Trước-Sau (`TWO_FRONT_BACK`), 2 đến 5 mục tiêu Trên-Dưới (`TWO_UP_DOWN` .. `FIVE_UP_DOWN`), Hình chữ thập (`CROSS`), Hình vuông 4 ô (`SQUARE`), Đường thẳng 6 người (`SIX_LINE`), Toàn bộ phe địch/phe ta (`ALL`), Mục tiêu HP thấp nhất/cao nhất (`LOWEST_HP`, `HIGHEST_HP`), Bản thân (`SELF`), Chủ nhân (`OWNER`), Cả Người và Pet (`PET_AND_PLAYER`).
+- **Hệ thống Trận Pháp (`Formation`)**: Kỹ năng nhánh `SKILL_TYPE_FORMATION = 3` kích hoạt hiệu ứng đội hình cho toàn bộ tổ đội khi người chơi làm Đội trưởng.
+
+### 3.6. Hệ thống Thú Cưng (`MyPet`) & Lính Đánh Thuê (`Mercenary`)
+- **Thú cưng (`com.hz.actor.MyPet`, `PetComposite`, `PetEvolve`)**:
+  - **Độ Trưởng Thành (`Grow`)**: Mỗi khi Pet lên 1 cấp, nhận `1–3` điểm kinh nghiệm trưởng thành. Khi thanh kinh nghiệm trưởng thành đạt 100%, Độ trưởng thành tăng +1, giúp tăng mạnh lượng chỉ số cộng thêm mỗi cấp.
+  - **Lĩnh Ngộ (`Understand` / `Comprehension`)**: Khi lên cấp, Pet có xác suất tự lĩnh ngộ các kỹ năng Thiên phú bẩm sinh (`SKILL_ID_PET_NORMAL_TALENT = 9998`, `9999`).
+  - **Tái Sinh (`Pet Reset`)**: Dùng `Đá Tẩy Tủy` đưa Pet về Cấp 1 nhưng giữ nguyên Độ trưởng thành đã tích lũy để nuôi lại với chỉ số tối ưu hơn.
+  - **Đá Tiềm Năng**: Cộng trực tiếp điểm thuộc tính cho Pet (cần Tái sinh để hoàn trả nếu muốn cộng lại).
+  - **Hợp thành (`PetComposite`), Tiến hóa (`PetEvolve`) & Phong ấn (`PetSeal`)**: Ghép các Pet cùng/khác loại để nâng phẩm chất, tiến hóa ngoại hình (`assets/common/PetIcon/tx_500.png`..`tx_548.png`), hoặc phong ấn kỹ năng hiếm của Pet thành Sách Kỹ Năng.
+- **Lính Đánh Thuê (`com.hz.core.Mercenary`)**:
+  - Người chơi có thể thuê một đội lính gồm **Chủ tướng** và các **Phó tướng**, tùy chỉnh trạng thái chiến đấu (`Mãnh công`, `Trị liệu`, `Bảo vệ`) để hỗ trợ khi đi đơn lẻ.
+
+### 3.7. Hệ thống Thành Trì, Quốc Gia & Quốc Chiến (`City`, `Country`, `CountryWar`)
+- **13 Công trình Quốc gia (`Country.java` & `Define.BUILD_*`)**:
+  1. `Hoàng Cung` (Trung tâm cấp độ quốc gia)
+  2. `Quân Doanh` (Tăng giới hạn quân số & phòng thủ)
+  3. `Nhà Dân` (Tăng dân số & thu nhập thuế)
+  4. `Xưởng Đá`, 5. `Xưởng Sắt`, 6. `Xưởng Gỗ` (Sản xuất 3 loại tài nguyên chiến lược: Đá, Sắt, Gỗ)
+  7. `Võ Quán Chiến Sĩ`, 8. `Võ Quán Hiệp Khách`, 9. `Học Viện Pháp Sư`, 10. `Quán Đạo Tu Chân` (Nơi nghiên cứu và học kỹ năng độc quyền của 4 hệ phái)
+  11. `Tiệm Trang Bị`, 12. `Tiệm Đạo Cụ`, 13. `Tiệm Chế Tạo`.
+- **11 Cấp Quan Chức & Đặc Quyền Thuế (`Country.java`)**:
+  - `Quốc Vương` (Miễn thuế 100% — nếu offline quá **30 ngày** hệ thống tự động truyền ngôi cho thành viên đủ điều kiện), `Nhiếp Chính Vương`, `Nguyên Soái` (giảm 75% thuế), `Đại Tướng Quân` (giảm 50% thuế), `Thống Lĩnh` (giảm 25% thuế), `Chấp Chính Quan`, `Tài Chính Quan`, `Nội Chính Quan`, `Binh Sĩ`, `Bá Tánh`, `Viện Quân`, cùng các tước vị quý tộc `Bá Tước`, `Tử Tước`.
+- **Quốc Chiến 10 Hiệp (`CountryWar.java`, `WarBuild.java`, `WarCommand.java`)**:
+  - Diễn ra trên bản đồ chiến trường riêng (`MAP_WAR_ID = 6001`) trong **10 hiệp**.
+  - Phe Thủ bảo vệ **6 Công trình**: `Hoàng Cung`, `Tường Thành Trên`, `Tường Thành Dưới`, `Tiễn Tháp Trên`, `Tiễn Tháp Giữa`, `Tiễn Tháp Dưới`.
+  - Chỉ huy sử dụng **Quân Lệnh (`WarCommand`)** tiêu tốn tài nguyên quốc gia để buff quân đội hoặc phá hủy công sự địch.
+  - **4 Hình thức Trừng phạt Quốc gia thua cuộc**:
+    1. Ngẫu nhiên **1 công trình bị hạ 1 cấp**.
+    2. Treo **Biển Cảnh Cáo 48 giờ** trên toàn máy chủ.
+    3. Giảm **50% Độ Quân Sự** và **30% Độ Phồn Vinh**.
+    4. Trừ **15% Quỹ Quốc Gia** chuyển thẳng làm chiến lợi phẩm cho Quốc gia chiến thắng.
+
+### 3.8. Các Mini-Games & Hoạt động Giải trí Tích hợp
+1. **Lật Hình Trí Nhớ (`com.hz.core.FilpGame`)**: Lật các cặp thẻ bài giống nhau trong thời gian giới hạn (tài nguyên tại `assets/common/Filp/`).
+2. **Nối Hình Pikachu (`com.hz.core.LinkupGame`)**: Tìm và nối 2 biểu tượng giống nhau sao cho đường gấp khúc không vượt quá 2 lần rẽ (tài nguyên tại `assets/common/Linkup/`).
+3. **Nối Ống Nước (`com.hz.main.WaterPipeGame`)**: Xoay các đoạn ống nước trên lưới `5x5` hoặc `7x7` để dẫn nước thông suốt trong thời gian quy định.
+4. **Đoán Hình / Đoán Số (`com.hz.core.GuessGame`)**: Đặt cược dự đoán biểu tượng chiến thắng qua 3 cửa sổ quay thưởng.
+5. **Áp Tiêu Bàn Cờ (`com.hz.core.Escort` & `NewEscort`)**: Đổ xúc xắc/di chuyển qua các ô sự kiện trên bản đồ áp tiêu (`7000–7999`), đối mặt với thời tiết biến đổi và người chơi khác cướp tiêu.
+
+---
+
+## PHẦN 4: TOÀN BỘ HỆ THỐNG BẢN ĐỒ (ALL MAPS & MAP ENGINE)
+
+### 4.1. Phân vùng Dải ID Bản Đồ Toàn Thế Giới (`com.hz.core.Define`)
+Mặc dù dữ liệu bố cục từng bản đồ (`.m`) được máy chủ truyền phát động (streamed) khi người chơi chuyển vùng để giảm dung lượng APK, toàn bộ kiến trúc phân vùng ID bản đồ được định nghĩa cứng trong `com.hz.core.Define` ([Define_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/Define_statics.json)):
+
+| Dải Map ID | Hằng số Định nghĩa trong `com.hz.core.Define` | Phân loại Khu vực / Bản đồ |
+| :--- | :--- | :--- |
+| **`1 – 999`** | `MAP_COMMON_START = 1` .. `MAP_COMMON_END = 999` | **Bản đồ Thế giới Chung (Wilderness / Towns / Hunting Grounds)**: Các thành trấn trung lập, bãi luyện cấp, hang động và bản đồ nhiệm vụ cốt truyện. |
+| **`1000 – 1999`** | `MAP_EAST_CITY_START = 1000` .. `MAP_EAST_CITY_END = 1999` | **Thành Trì Cá Nhân — Đông Phương**: Không gian thành trì riêng của người chơi hệ Đông Phương. |
+| **`2000 – 2999`** | `MAP_WEST_CITY_START = 2000` .. `MAP_WEST_CITY_END = 2999` | **Thành Trì Cá Nhân — Tây Phương**: Không gian thành trì riêng của người chơi hệ Tây Phương. |
+| **`3000 – 3999`** | `MAP_EAST_COUNTRY_START = 3000` .. `MAP_EAST_COUNTRY_END = 3999` | **Lãnh Thổ Quốc Gia — Đông Phương**: Bản đồ thủ đô và khu công trình của các Quốc gia Đông Phương. |
+| **`4000 – 4999`** | `MAP_WEST_COUNTRY_START = 4000` .. `MAP_WEST_COUNTRY_END = 4999` | **Lãnh Thổ Quốc Gia — Tây Phương**: Bản đồ thủ đô và khu công trình của các Quốc gia Tây Phương. |
+| **`5000 – 5999`** | `MAP_MIRROR_START = 5000` .. `MAP_MIRROR_END = 5999` | **Bản đồ Phản Chiếu / Phó Bản (Mirror / Instance Maps)**: Bao gồm bản đồ Đấu trường PK (`MAP_PK_ID = 5027`), Phó bản đoàn đội (`TeamBoss`), và Đấu trường Thiên Không (`SkyArena`). |
+| **`6000 – 6999`** | `MAP_COUNTRY_WAR_START = 6000` .. `MAP_COUNTRY_WAR_END = 6999` | **Chiến Trường Quốc Chiến (`MAP_WAR_ID = 6001`)**: Bản đồ công thành chiến liên quốc gia. |
+| **`7000 – 7999`** | `MAP_ESCORT_START = 7000` .. `MAP_ESCORT_END = 7999` | **Tuyến Đường Áp Tiêu (`Escort Maps`)**: Các bản đồ bàn cờ vận tiêu và cướp tiêu. |
+
+### 4.2. Kiến trúc Engine Bản Đồ Đa Lớp (`com.hz.map.*`)
+Phân tích từ [engine_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/engine_classes_summary.json) (`com.hz.map.GameMap`, `MapLayer`, `TileLayer`, `PixelLayer`, `PlayerLayer`):
+1. **Định dạng Luồng Bản đồ (`.m` / `_mini.m`)**:
+   - Khi nhận gói tin bản đồ từ máy chủ (`CG_SCENE_ENTERMAP = 10501`) hoặc nạp cục bộ qua `ResourceHandler.loadLocalMap(mapId)` (`/map/{id}.m` hoặc `/map/{id}_mini.m`), dữ liệu được giải nén bằng `com.hz.net.GZIP.inflate(byte[])` rồi đọc qua `DataInputStream` trong `GameMap.fromBytes(byte[])`.
+   - Cấu trúc nhị phân của một bản đồ gồm:
+     - `name` (`readUTF`): Tên hiển thị của bản đồ (ví dụ tên thành thị, sơn trang, phó bản).
+     - Kích thước lưới: `mapColumns` $\times$ `mapRows` (mỗi ô gạch kích thước chuẩn `24x24` pixels — `GRID_SIZE = 24`).
+     - Danh sách mảnh đồ họa (`GameImage[]`): Tham chiếu tới ID ảnh (`nameID`) và bảng màu (`palID`).
+     - Ma trận va chạm (`crossData[int]`): Bitmask xác định ô đi được hay bị chặn.
+     - **5 Lớp Hiển thị (`MapLayer`)**:
+       - `LAYER_TILE` (`TileLayer`): Lớp nền mặt đất ghép từ các ô gạch `24x24`.
+       - `LAYER_PIXEL` (`PixelLayer`): Lớp vật thể kiến trúc, cây cối, nhà cửa đặt theo tọa độ pixel tự do.
+       - `LAYER_PLAYER` (`PlayerLayer`): Lớp vẽ nhân vật, NPC (`com.hz.actor.NPC`), quái vật, thú cưng có sắp xếp chiều sâu (Z-order theo trục Y).
+       - `LAYER_ANIM`: Lớp hiệu ứng động trên bản đồ (thác nước, cổng dịch chuyển, lửa cháy).
+       - `LAYER_BLOCK`: Lớp che khuất phía trước nhân vật (mái nhà, tán cây).
+2. **Thuật toán Tìm đường Tự động (`GameMap.findPath`)**:
+   - Cài đặt thuật toán tìm đường ngắn nhất trên lưới ô vuông (`searchPathNode`, `findMinCostPos`, `addPathNode`, `getNearPoint`) kết hợp tìm đường liên bản đồ (`CG_SCENE_FINDPATH_MISSION = 10518`) giúp nhân vật tự động chạy qua các cổng dịch chuyển (`JumpPoint`) tới đúng vị trí NPC hoặc quái vật nhiệm vụ.
+3. **Bản đồ Thế giới Tổng quan (`WorldMap`)**:
+   - Sử dụng tệp hình ảnh bản đồ thế giới [assets/common/wm.png](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/wm.png) kết hợp giao diện [assets/ui/109.ui](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ui/109.ui) và [assets/ui/110.ui](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ui/110.ui) (`TYPE_WORLD_MAP_LIST = 109`, `TYPE_WORLD_MAP_PANEL = 110`) để hiển thị toàn cảnh lục địa Đông Phương & Tây Phương.
+
+### 4.3. Gói Dữ liệu Đồ họa Bản đồ Đóng gói sẵn (`assets/map/1.pn` & `1.pd`)
+Trong APK, toàn bộ gạch nền và vật thể kiến trúc bản đồ cơ sở được đóng gói tại thư mục `assets/map/`:
+- **[assets/map/1.pn](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/map/1.pn)** (`1,292 bytes`): Tệp chỉ mục (Index file). Hai byte đầu tiên `0x0285` (Big-Endian `short`) = **645 mục**, theo sau là 645 số nguyên `short` định danh ID của từng mảnh đồ họa bản đồ (`0.png`, `1.png`, `2.png`...).
+- **[assets/map/1.pd](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/map/1.pd)** (`533,566 bytes`): Tệp dữ liệu (Pack data). Hai byte đầu `0x0285` = **645 mục**, tiếp theo là mảng 645 giá trị `short` lưu độ dài byte của từng tệp PNG, và ngay sau đó là **645 tệp ảnh PNG hoàn chỉnh** nối tiếp nhau (bắt đầu bằng chữ ký chuẩn `\x89PNG\r\n\x1a\n` tại offset `0x050C`).
+- Nếu bản đồ mới yêu cầu mảnh đồ họa có ID nằm ngoài 645 mảnh cơ sở này, `GameMap.getReqImageAndPlList()` sẽ gửi gói tin `CG_SCENE_GET_IMAGE_RESOURCE (10536)` để tải bổ sung từ máy chủ và lưu vào bộ nhớ đệm `ResourceHandler.mapImage` (ngưỡng bộ đệm `MAX_MAP_IMAGE_DATASIZE = 50,000 bytes`).
+
+---
+
+## PHẦN 5: DỮ LIỆU TÀI NGUYÊN (RESOURCE DATA) — VỊ TRÍ TỆP & NỘI DUNG CHI TIẾT
+
+Toàn bộ kết quả kiểm tra nhị phân, đếm tệp và giải mã định dạng tài nguyên được lưu tại [asset_inspection.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/asset_inspection.json). Dưới đây là danh mục đầy đủ từng thư mục, vị trí tệp và cấu trúc dữ liệu.
+
+### 5.1. Tổng quan Phân bổ Tài nguyên trong `assets/` (8,348 tệp — 34,820,400 bytes)
+
+| Thư mục / Tệp trong APK | Đường dẫn Giải nén Tuyệt đối | Số lượng tệp | Dung lượng | Định dạng chứa bên trong |
+| :--- | :--- | ---: | ---: | :--- |
+| `assets/ani/` (Gốc) | [assets/ani](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ani) | 126 | 4,769,482 B | `81` tệp `.pd`, `1` tệp `.pn` (`3.pn`), `44` tệp `.png`. |
+| `assets/ani/ani2/` | [assets/ani/ani2](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ani/ani2) | 7,380 | 17,919,172 B | `2,718` `.spr`, `1,797` `.pl`, `1,435` `.png`, `1,430` `.fr`. |
+| `assets/common/` (Gốc) | [assets/common](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common) | 508 | 8,900,457 B | `328` `.png`, `175` `.fr`, `5` phông chữ `.t` (`12.t`..`20.t`). |
+| `assets/common/Filp/` | [assets/common/Filp](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/Filp) | 20 | 328,741 B | `20` `.png` chia làm 2 bộ thẻ bài (`Filp/1/` và `Filp/2/`). |
+| `assets/common/Linkup/` | [assets/common/Linkup](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/Linkup) | 96 | 753,015 B | `96` `.png` chia làm 6 chủ đề (`Linkup/1/` đến `Linkup/6/`). |
+| `assets/common/PetIcon/` | [assets/common/PetIcon](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/PetIcon) | 49 | 1,290,940 B | `49` `.png` (`tx_500.png` đến `tx_548.png`) ảnh đại diện Pet. |
+| `assets/map/` | [assets/map](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/map) | 2 | 534,858 B | `1.pn` (chỉ mục) + `1.pd` (645 mảnh đồ họa bản đồ PNG). |
+| `assets/ui/` | [assets/ui](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ui) | 165 | 323,517 B | `165` tệp kịch bản bố cục giao diện nhị phân (`.ui`). |
+| `assets/jad.properties` | [jad.properties](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/jad.properties) | 1 | 217 B | Cấu hình khởi chạy MIDlet J2ME (`com.hz.GameMIDlet`). |
+| `assets/deal_ck.html` | [deal_ck.html](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/deal_ck.html) | 1 | 1 B | Tệp placeholder rỗng (1 byte). |
+
+---
+
+### 5.2. Chi tiết Định dạng & Nội dung Hình ảnh, Hoạt ảnh (`assets/ani/` & `assets/common/`)
+Engine đồ họa của game (`com.hz.sprite.*` & `com.hz.main.ResourceHandler`) sử dụng một kiến trúc Sprite mô-đun cực kỳ tiết kiệm bộ nhớ, lắp ghép nhân vật từ các mảnh bộ phận (Đầu, Tóc, Khuôn mặt, Thân, Tay, Chân, Vũ khí, Áo choàng, Cánh, Thú cưỡi) và đổi màu trang bị bằng cách **thay thế trực tiếp chunk bảng màu `PLTE` của ảnh PNG ngay trong RAM**:
+
+```mermaid
+flowchart LR
+    SPR["Tệp .spr (GameSprite)\n2,718 tệp trong ani2/\n+ đóng gói trong 100.pd..154.pd"] -->|Tham chiếu tên ID| FR["Tệp .fr (FragmentFile)\n1,430 tệp trong ani2/ + 175 trong common/\n+ 778 mục trong 3.pn/3.pd"]
+    FR -->|Cắt mảnh tọa độ X,Y,W,H| PNG["Tệp .png (Sprite Sheet)\n1,435 tệp trong ani2/ + 44 trong ani/\n+ đóng gói trong 10.pd..50.pd"]
+    PL["Tệp .pl (Palette PLTE + CRC32)\n1,797 tệp trong ani2/\n+ đóng gói trong 200.pd..204.pd"] -->|Ghi đè bảng màu PNG| PNG
+    PNG -->|Render qua Frame & Animation| Canvas["GameCanvas / BattleAniEngine"]
+```
+
+1. **Định dạng `.spr` — Kịch bản Hoạt ảnh Sprite (`com.hz.sprite.GameSprite`)**:
+   - **Vị trí**: `2,718` tệp rời tại `assets/ani/ani2/*.spr` (ví dụ `0000.spr`..`5502.spr`) và các gói `.pd` từ `100.pd` đến `154.pd` tại `assets/ani/`.
+   - **Cấu trúc nhị phân (`GameSprite.fromBytes`)**: Khai báo danh sách các tệp mảnh `.fr` cần nạp, danh sách các khung hình tĩnh (`Frame` — ghép từ nhiều `Fragment` với độ lệch `offX, offY` và cờ lật gương/xoay góc), và danh sách các chuỗi hành động (`Animation`: Đứng yên, Chạy, Tấn công, Thi triển phép, Bị thương, Ngã xuống, Cưỡi thú).
+2. **Định dạng `.fr` — Tọa độ Cắt Mảnh Sprite Sheet (`com.hz.sprite.FragmentFile`)**:
+   - **Vị trí**: `778` mục đóng gói trong [assets/ani/3.pn](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ani/3.pn) + [assets/ani/3.pd](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ani/3.pd), `1,430` tệp rời tại `assets/ani/ani2/*.fr`, và `175` tệp rời tại `assets/common/*.fr`.
+   - **Cấu trúc nhị phân**: Lưu số lượng mảnh cắt và danh sách `(x, y, width, height)` trên tấm ảnh `.png` tương ứng.
+3. **Định dạng `.pl` — Bảng màu Động PNG (`Palette Chunk`)**:
+   - **Vị trí**: `1,797` tệp rời tại `assets/ani/ani2/*.pl` (ví dụ `1100.pl`, `1101.pl`...) và các gói `200.pd` đến `204.pd` tại `assets/ani/`.
+   - **Cấu trúc nhị phân (**Observed in hex dump**)**: Mỗi tệp `.pl` bắt đầu chính xác bằng 4 byte chữ ký ASCII **`PLTE`** (`50 4C 54 45`), theo sau là các bộ 3 byte màu `(R, G, B)` và kết thúc bằng 4 byte mã kiểm tra **`CRC32`**. Khi hàm `Utilities.loadImageProperty(pngBytes, plBytes)` được gọi, nó tìm chunk `PLTE` bên trong tệp `.png` gốc và thay thế nguyên khối bằng nội dung tệp `.pl`, cho phép chỉ cần 1 tấm ảnh PNG vũ khí/áo giáp gốc nhưng tạo ra hàng chục màu sắc phẩm chất khác nhau!
+4. **Định dạng `.pd` Tự Chứa Chỉ Mục trong `assets/ani/` (`10.pd` .. `204.pd`)**:
+   - Khác với `1.pd` và `3.pd` có tệp `.pn` đi kèm, **80 tệp `.pd` còn lại** trong `assets/ani/` tích hợp cả bảng chỉ mục lẫn dữ liệu trong cùng một tệp (đọc bởi `ResourceHandler.getFileBytesInPackData`):
+     - `10.pd` – `50.pd` (41 tệp): Đóng gói các tấm ảnh Sprite Sheet `.png`.
+     - `100.pd` – `154.pd` (55 tệp): Đóng gói các định nghĩa hoạt ảnh `.spr`.
+     - `200.pd` – `204.pd` (5 tệp): Đóng gói các bảng màu `.pl`.
+   - Khi máy chủ cập nhật thêm hoạt ảnh mới lúc chạy, game lưu bộ đệm động vào thẻ nhớ tại đường dẫn `/sdcard/sjolani/` (`ResourceHandler.initSdCard`).
+5. **Tài nguyên Đồ họa Dùng chung (`assets/common/`)**:
+   - **Ảnh giao diện & Biểu tượng chính (`assets/common/*.png` — 328 tệp)**:
+     - `ti.png`: Logo tiêu đề game; `wm.png`: Bản đồ thế giới; `bo.png`, `bwin.png`, `blost.png`: Đồ họa bắt đầu/chiến thắng/thất bại trong trận đấu; `flow.png`: Hiệu ứng thời tiết/hoa rơi; `back0.png`, `back1.png`: Khung nền; `corner.png`, `line.png`, ` shadow.png`: Viền khung UI.
+     - Các tệp đánh số (`0.png`..`9998.png`) đi kèm tệp `.fr` cùng tên: Chứa toàn bộ bộ icon kỹ năng, icon trang bị/vật phẩm, biểu tượng cảm xúc (emoticons), hiệu ứng trạng thái (buff/debuff), và khung nút bấm.
+   - **Chân dung Thú cưng (`assets/common/PetIcon/tx_500.png` .. `tx_548.png` — 49 tệp, 1.29 MB)**: Ảnh minh họa chất lượng cao của 49 loài thú cưng/thú cưỡi.
+   - **Đồ họa Mini-game (`assets/common/Filp/` — 20 tệp & `assets/common/Linkup/` — 96 tệp)**: Bộ thẻ bài lật hình và các quân cờ nối hình Pikachu.
+
+---
+
+### 5.3. Hệ thống Phông Chữ Điểm Ảnh (`assets/common/*.t` — `com.hz.string.PixelFont`)
+Trò chơi chứa **5 tệp phông chữ nhị phân tùy chỉnh** tại `assets/common/`:
+- [12.t](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/12.t) (`15,826 B` — cỡ 12px, **631 ký tự**)
+- [14.t](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/14.t) (`14,352 B` — cỡ 14px, **434 ký tự**)
+- [16.t](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/16.t) (`20,956 B` — cỡ 16px, **581 ký tự**)
+- [18.t](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/18.t) (`32,102 B` — cỡ 18px, **583 ký tự**)
+- [20.t](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/common/20.t) (`30,502 B` — cỡ 20px, **578 ký tự**)
+- **Cấu trúc nhị phân (`PixelFont.fromBytes`)**: Byte đầu là `fontHeight`, theo sau là `short charCount`, mảng `char[charCount]` bảng mã Unicode, mảng `byte[charCount]` độ rộng từng ký tự, và ma trận bitmap đơn sắc 1-bit (`fontData[][]`) để vẽ chữ pixel sắc nét không phụ thuộc phông hệ thống.
+
+---
+
+### 5.4. Hệ thống Âm Thanh (Audio System Analysis — **Observed & Verified**)
+Qua kiểm tra toàn bộ 9,408 tệp trong APK và phân tích bytecode của các lớp âm thanh trong [engine_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/engine_classes_summary.json) (dòng 9231–9725):
+1. **Không có tệp âm thanh đóng gói sẵn (**Observed**)**: Trong toàn bộ thư mục `assets/` và `res/` của APK **hoàn toàn không có** bất kỳ tệp `.mp3`, `.ogg`, `.wav`, `.mid`, hay `.amr` nào (chỉ có duy nhất 1 tệp cấu hình rỗng `res/raw/ firebase_common_keep.xml`).
+2. **Cơ chế Mã nguồn Âm thanh (`javax.microedition.media.*` & `com.lori.android.media.SoundPlayer`)**:
+   - Lớp `javax.microedition.media.Manager`: Hàm `createPlayer(InputStream, String)` và `playTone(int, int, int)` là các **hàm rỗng (no-op stubs)** trả về `null`. Hàm `createPlayer(String)` chỉ kiểm tra chuỗi `"tone_device"` để trả về đối tượng `javax.microedition.media.TonePlayer`.
+   - Lớp `javax.microedition.media.TonePlayer`: Toàn bộ 18 phương thức (`start()`, `stop()`, `setSequence(byte[])`, `realize()`, `prefetch()`, `close()`...) đều là **hàm rỗng (no-op)**.
+   - Lớp `com.lori.android.media.SoundPlayer`: Bọc `android.media.MediaPlayer` và có hàm `pauseAll()` / `resumeAll()` được gọi tự động khi `MIDlet.doPauseApp()` / `doStartApp()`, nhưng không có bất kỳ lệnh khởi tạo `new SoundPlayer(...)` nào được gọi từ phía engine `com.hz.*`.
+   - **Kết luận (**Derived**)**: Phiên bản chuyển đổi J2ME-sang-Android này đã **vô hiệu hóa hoàn toàn âm thanh/nhạc nền MIDI gốc của J2ME** ở tầng wrapper (`TonePlayer` / `Manager`) và loại bỏ các tệp nhạc để giảm dung lượng gói cài đặt.
+
+---
+
+### 5.5. Dữ liệu Cấu hình & Giao diện Nhị phân (`assets/ui/*.ui` & Hệ thống Hằng số)
+
+#### A. 165 Tệp Bố cục Giao diện Nhị phân (`assets/ui/*.ui` — 323,517 bytes)
+- **Vị trí**: [assets/ui/](file:///C:/Users/binhn/AppData/Local/Temp/rea-extracted-bbfe7674-b0da-47cb-8a86-01196d8ccbde/assets/ui) (gồm 165 tệp đánh số từ `1.ui`, `2.ui`, `3.ui` ... đến `900.ui`, `901.ui`).
+- **Cơ chế Giải mã (`com.hz.ui.XmlParse` & `com.hz.ui.UIHandler`)**:
+  - Đây là các cây giao diện XML đã được biên dịch sang dạng bytecode nhị phân (Binary XML). Khi mở một cửa sổ có định danh `TYPE_*` (khai báo trong [UIDefine_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/UIDefine_statics.json)), `UIHandler.getFilePathByType(type)` nạp tệp `/ui/{type}.ui` tương ứng và truyền vào `XmlParse.parseUI(byte[])` để dựng cây đối tượng `GWidget`.
+- **Ánh xạ các tệp `.ui` tiêu biểu theo `UIDefine.TYPE_*`**:
+  - `2.ui`: Trang bị Nhân vật (`TYPE_PLAYER_EQUIP`) — `3.ui`: Thông tin Nhân vật (`TYPE_PLAYER_INFO`) — `31.ui`, `32.ui`, `33.ui`, `315.ui`: Các tab Thuộc tính, Kỹ năng, Album ảnh, Thiên phú.
+  - `35.ui`: Danh sách Vật phẩm Thế giới (`TYPE_WORLD_ITEM_LIST`) — `36.ui`: Cửa hàng Kỹ năng (`TYPE_SKILL_SHOP`) — `37.ui`: Danh sách Nhiệm vụ (`TYPE_TASK_LIST`).
+  - `42.ui`: Cửa hàng Vật phẩm (`TYPE_SHOPITEM`) — `43.ui`, `44.ui`, `54.ui`, `55.ui`: Hệ thống Hòm thư, Xem thư, Gửi thư, Nhận thư.
+  - `60.ui`: Danh sách Quan hệ/Hảo hữu (`TYPE_RELATION_LIST`) — `61.ui`, `62.ui`: Lính đánh thuê (`TYPE_MERCENARY_LIST/INFO`) — `63.ui`: Thành trì cá nhân (`TYPE_CITY_INFO`).
+  - `64.ui`, `66.ui`: Khung Chat & Kênh Chat (`TYPE_CHATMSG`) — `67.ui`..`71.ui`, `207.ui`: Sở Giao Dịch & Mua bán hàng hóa (`TYPE_GOODS*`).
+  - `74.ui`..`80.ui`, `97.ui`, `98.ui`, `103.ui`, `105.ui`: Toàn bộ hệ thống Quản lý Quốc gia, Công trình, Thành viên, Quyền hạn, Quyên góp (`TYPE_COUNTRY_*`).
+  - `82.ui`: Sách Quái vật (`TYPE_MONSTER_LIST`) — `83.ui`..`86.ui`: Album ảnh & Bình luận (`TYPE_PHOTO_*`).
+  - `89.ui`, `90.ui`, `93.ui`, `111.ui`, `112.ui`: Hệ thống Áp Tiêu & Cướp Tiêu (`TYPE_ESCORT*`, `TYPE_NEW_ESCORT*`).
+  - `91.ui`, `92.ui`, `206.ui`: Hệ thống Thành tựu (`TYPE_ACHIEVE_*`) — `94.ui`, `155.ui`: Thiệp người chơi (`TYPE_PLAYER_CARD`) — `95.ui`, `96.ui`: Kho đồ & Túi đồ (`TYPE_STORAGE`, `TYPE_BAG_OPERATE`).
+  - `100.ui`, `101.ui`: Giao diện Chiến đấu theo lượt (`TYPE_BATTLE_PANEL`, `TYPE_BATTLE_POP`).
+  - `102.ui`, `115.ui`, `116.ui`, `308.ui`: Giao diện Nạp thẻ & Mốc nạp (`TYPE_BILL_*`, `TYPE_PAY_*`).
+  - `109.ui`, `110.ui`: Bản đồ Thế giới (`TYPE_WORLD_MAP_*`) — `117.ui`: Đấu trường Thiên Không (`TYPE_SKY_ARENA`) — `118.ui`, `310.ui`: Hệ thống VIP (`TYPE_OPEN_VIP`, `TYPE_VIP_UPGRADE`).
+  - `120.ui`: Quốc gia Công thành (`TYPE_COUNTRY_BOSS`) — `121.ui`, `163.ui`, `165.ui`: Hợp thành, Hướng dẫn & Tiến hóa Pet (`TYPE_PET_*`).
+  - `123.ui`..`127.ui`: Cẩm nang Raiders (`TYPE_*_RAIDERS`) — `128.ui`, `129.ui`: Lò Luyện (`TYPE_FURNACE*`).
+  - `130.ui`..`143.ui`: Toàn bộ giao diện Quốc Chiến, Quân đoàn, Liên minh (`TYPE_COUNTRY_WAR_*`, `TYPE_ARMY_*`).
+  - `160.ui`, `209.ui`, `210.ui`: Vòng quay Xổ số (`TYPE_LOGIN_LOTTERYDRAW`, `TYPE_LOTTERY_DRAW*`).
+  - `166.ui`: Tự động bán đồ (`TYPE_AUTO_SELL`) — `168.ui`: Phụ Ma (`TYPE_ENCHANT`) — `169.ui`: Độ sôi nổi (`TYPE_ACTIVE`) — `170.ui`: Cột mốc (`TYPE_MILESTONE`) — `171.ui`: Hộp màu (`TYPE_COLORBOX`).
+  - `173.ui`, `175.ui`, `176.ui`, `205.ui`: Đấu trường & Đấu trường Tranh Bá (`TYPE_NEWARENA*`, `TYPE_ARENA`).
+  - `178.ui`..`182.ui`: Chiến trường Phe phái (`TYPE_BATTLESPACE`, `TYPE_BATTLEGROUND_*`).
+  - `183.ui`: Đoán hình (`TYPE_GUESS_GAME`) — `185.ui`: Nối ống nước (`TYPE_WATERPIPEGAME`) — `301.ui`: Nối hình Pikachu (`TYPE_LINKUPGAME`) — `302.ui`: Lật hình (`TYPE_FILPGAME`).
+  - `200.ui`: Phó bản bàn cờ (`TYPE_GRID_ECTYPE`) — `202.ui`: Bảng xếp hạng (`TYPE_RANK`) — `203.ui`, `204.ui`: Mua bán Nhân vật (`TYPE_ACTOR_SELL/BUY_LIST`).
+  - `211.ui`..`218.ui`, `300.ui`: Menu chính, Danh sách Máy chủ, Danh sách Nhân vật, Tạo nhân vật mới (`TYPE_NEW_CREATE_PLAYER = 300`).
+  - `311.ui`: Lì xì (`TYPE_RED_PACKET`) — `312.ui`: Thông báo (`TYPE_NOTICE`) — `313.ui`: Thiên phú (`TYPE_TALENT`) — `314.ui`: Hoạt động hàng ngày (`TYPE_DAILY`).
+  - `900.ui`, `901.ui`: Menu Gỡ lỗi & Thử trang phục của nhà phát triển (`TYPE_DEBUG_LIST_MENU`, `TYPE_TEST_CHANGECLOTHES`).
+
+#### B. Các Tệp Dữ liệu Cấu hình & Chuỗi Văn bản Đã Trích xuất Toàn Bộ (JSON)
+Để thuận tiện cho việc tra cứu sâu từng hằng số, mã gói tin và chuỗi văn bản Việt hóa, toàn bộ dữ liệu tĩnh trong DEX và ARSC đã được trích xuất thành các tệp JSON chuẩn tại thư mục [scratch](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch):
+1. **[Define_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/Define_statics.json)** (`1,146 dòng`): Toàn bộ hằng số cấu hình lõi của game (`com.hz.core.Define`): giới hạn cấp độ, dải ID bản đồ, 30 loại vũ khí, 18 vị trí trang bị, 39 phạm vi kỹ năng, bảng màu phẩm chất, chủng tộc, 12 nghề nghiệp, công trình quốc gia.
+2. **[ProtocolDefine_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/ProtocolDefine_statics.json)** (`646 dòng`): Toàn bộ bảng mã lệnh giao thức mạng Client-Server (`CG_*`, `GC_*`, `LC_*`) trong `com.hz.core.ProtocolDefine`.
+3. **[UIDefine_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/UIDefine_statics.json)** (`1,051 dòng`): Toàn bộ mã cửa sổ giao diện (`TYPE_*`), mã sự kiện nút bấm (`EVENT_*`) và menu phụ (`SUB_*`) trong `com.hz.ui.UIDefine`.
+4. **[GameText_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/GameText_statics.json)** & **[GameText2_statics.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/GameText2_statics.json)**: Toàn bộ từ điển văn bản giao diện, tên thuộc tính, thông báo hệ thống tiếng Việt.
+5. **[all_strings_by_class.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/all_strings_by_class.json)** (`8,193 dòng`): Toàn bộ chuỗi văn bản phân loại theo từng lớp trong 485 lớp chứa chuỗi của `classes2.dex`.
+6. **[engine_classes_summary.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/engine_classes_summary.json)** (`9,725 dòng`) & **[key_classes_bytecode.json](file:///C:/Users/binhn/.gemini/antigravity/brain/6652e3e0-be76-4656-a274-c6dc5d7a2bdb/scratch/key_classes_bytecode.json)** (`32,204 dòng`): Chi tiết phương thức, trường dữ liệu, lời gọi hàm và hằng số của các lớp Engine, UI, Bản đồ, Chiến đấu, Mạng và Cầu nối J2ME.
+
+---
+
+## PHẦN 6: PHÂN ĐỊNH RÕ QUAN SÁT, SUY LUẬN & ĐIỂM CHƯA BIẾT (OBSERVATIONS, DERIVATIONS & UNKNOWNS)
+
+- **Quan sát trực tiếp (Observations)**:
+  - Cấu trúc gói APK (`8,405` nút nội dung duy nhất / `9,408` tệp), chữ ký, manifest, 3 tệp DEX, 4 tệp `.so` native, và toàn bộ `8,348` tệp trong `assets/` đã được xác minh byte-level.
+  - Toàn bộ công thức hiển thị thuộc tính, giới hạn 70% của Đỡ đòn / Phản kích / Phản ma / Miễn sát thương, quy tắc -10% đỡ đòn liên kích, tỷ lệ Chí mạng 1.5x, công thức Thuẫn Pháp Lực và Cấp Thần Kì được trích xuất nguyên văn từ hằng số và chuỗi mô tả trong `com.hz.ui.PlayerInfoUIAction` và `com.hz.core.Define`.
+- **Suy luận từ mã nguồn (Source-Derived Conclusions)**:
+  - Trò chơi là bản port J2ME (`WorldOL` v1.3) chạy qua lớp giả lập `com.lori.*` / `javax.microedition.*`, lưu dữ liệu RMS vào SQLite `recordstoredb`.
+  - Thư viện `libMesgLogSdk.so` không được nạp ở runtime vì thiếu lớp JNI `com.mesglog.sdk.MesgLog` trong DEX.
+  - Hệ thống âm thanh J2ME (`TonePlayer`, `Manager`) đã được thay bằng các hàm rỗng (no-op) và không đóng gói tệp âm thanh trong APK.
+- **Điểm chưa biết / Phụ thuộc Máy chủ (Explicit Unknowns)**:
+  - **Danh sách tên cụ thể của từng bản đồ (`.m`) trên máy chủ**: Vì APK chỉ đóng gói gói gạch đồ họa nền (`assets/map/1.pn` + `1.pd` gồm 645 ảnh PNG) và định nghĩa các dải ID bản đồ (`1–7999`) trong `Define`, còn tệp cấu trúc từng bản đồ (`/map/{id}.m` chứa tên UTF và ma trận ô) được tải trực tuyến từ máy chủ `103.68.254.52:30000` / `123.30.133.164:30000` khi nhân vật bước vào bản đồ (`CG_SCENE_ENTERMAP = 10501`), nên danh sách tên từng bản đồ riêng lẻ ngoài những hằng số trong client nằm ở phía cơ sở dữ liệu máy chủ.
+  - **Hệ số sát thương nội tại phía Server**: Trong các trận đấu từ xa (`RemoteBattle`), máy chủ tính toán kết quả từng hiệp và gửi gói tin kịch bản hành động về cho `BattleAniEngine` trình diễn; các hệ số ngẫu nhiên phía server nằm ngoài phạm vi tệp APK client.

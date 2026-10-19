@@ -1,0 +1,268 @@
+{
+  "101": {
+    "id": 101,
+    "name": "Đội Sơn Tặc Đầu Mục",
+    "rewardExp": 15000,
+    "rewardMoney3": 50000,
+    "rewardItemId": 3001,
+    "monsters": [
+      {
+        "id": 1001,
+        "name": "Sơn Tặc Đầu Mục",
+        "level": 10,
+        "job": 2,
+        "hp": 3500,
+        "mp": 500,
+        "icon1": 201,
+        "atk": 280,
+        "def": 120
+      },
+      {
+        "id": 1002,
+        "name": "Sơn Tặc Tinh Nhuệ",
+        "level": 8,
+        "job": 1,
+        "hp": 2200,
+        "mp": 300,
+        "icon1": 202,
+        "atk": 200,
+        "def": 90
+      }
+    ]
+  },
+  "102": {
+    "id": 102,
+    "name": "Đội Tuần Tra Thiên Hạ Hội",
+    "rewardExp": 25000,
+    "rewardMoney3": 80000,
+    "rewardItemId": 3002,
+    "monsters": [
+      {
+        "id": 1003,
+        "name": "Đệ Tử Thần Phong Đường",
+        "level": 18,
+        "job": 7,
+        "hp": 6000,
+        "mp": 800,
+        "icon1": 202,
+        "atk": 420,
+        "def": 200
+      },
+      {
+        "id": 1004,
+        "name": "Đệ Tử Phi Vân Đường",
+        "level": 18,
+        "job": 1,
+        "hp": 6500,
+        "mp": 800,
+        "icon1": 203,
+        "atk": 450,
+        "def": 220
+      }
+    ]
+  },
+  "201": {
+    "id": 201,
+    "name": "BOSS Hùng Bá Thiên Hạ",
+    "rewardExp": 150000,
+    "rewardMoney3": 500000,
+    "rewardItemId": 1008,
+    "monsters": [
+      {
+        "id": 2001,
+        "name": "Bang Chủ Hùng Bá",
+        "level": 55,
+        "job": 9,
+        "hp": 45000,
+        "mp": 9999,
+        "icon1": 205,
+        "atk": 1800,
+        "def": 900
+      },
+      {
+        "id": 2002,
+        "name": "Thiên Trì Quái Hiệp",
+        "level": 48,
+        "job": 7,
+        "hp": 22000,
+        "mp": 5000,
+        "icon1": 203,
+        "atk": 1200,
+        "def": 600
+      }
+    ]
+  },
+  "202": {
+    "id": 202,
+    "name": "BOSS Kiếm Thánh Vô Song",
+    "rewardExp": 200000,
+    "rewardMoney3": 800000,
+    "rewardItemId": 1004,
+    "monsters": [
+      {
+        "id": 2003,
+        "name": "Kiếm Thánh Độc Cô Kiếm",
+        "level": 65,
+        "job": 3,
+        "hp": 68000,
+        "mp": 9999,
+        "icon1": 206,
+        "atk": 2400,
+        "def": 1100
+      },
+      {
+        "id": 2004,
+        "name": "Độc Cô Nhất Phương",
+        "level": 58,
+        "job": 2,
+        "hp": 35000,
+        "mp": 5000,
+        "icon1": 204,
+        "atk": 1600,
+        "def": 850
+      }
+    ]
+  },
+  "203": {
+    "id": 203,
+    "name": "THẦN THÚ Hỏa Kỳ Lân",
+    "rewardExp": 350000,
+    "rewardMoney3": 1500000,
+    "rewardItemId": 3004,
+    "monsters": [
+      {
+        "id": 2005,
+        "name": "Thần Thú Hỏa Kỳ Lân",
+        "level": 70,
+        "job": 6,
+        "hp": 95000,
+        "mp": 9999,
+        "icon1": 207,
+        "atk": 3200,
+        "def": 1500
+      }
+    ]
+  },
+  "204": {
+    "id": 204,
+    "name": "BOSS Bái Kiếm Sơn Trang",
+    "rewardExp": 250000,
+    "rewardMoney3": 1000000,
+    "rewardItemId": 1001,
+    "monsters": [
+      {
+        "id": 2006,
+        "name": "Kiếm Ma",
+        "level": 62,
+        "job": 1,
+        "hp": 55000,
+        "mp": 8000,
+        "icon1": 208,
+        "atk": 2200,
+        "def": 1000
+      },
+      {
+        "id": 2007,
+        "name": "Ngạo Thiên Trang Chủ",
+        "level": 60,
+        "job": 2,
+        "hp": 48000,
+        "mp": 6000,
+        "icon1": 204,
+        "atk": 1900,
+        "def": 950
+      }
+    ]
+  },
+  "205": {
+    "id": 205,
+    "name": "Võ Lâm Thần Thoại Vô Danh",
+    "rewardExp": 450000,
+    "rewardMoney3": 2000000,
+    "rewardItemId": 1004,
+    "monsters": [
+      {
+        "id": 2008,
+        "name": "Thần Thoại Vô Danh",
+        "level": 78,
+        "job": 1,
+        "hp": 120000,
+        "mp": 9999,
+        "icon1": 209,
+        "atk": 3800,
+        "def": 1800
+      }
+    ]
+  },
+  "206": {
+    "id": 206,
+    "name": "BOSS Tuyệt Vô Thần",
+    "rewardExp": 500000,
+    "rewardMoney3": 2500000,
+    "rewardItemId": 2002,
+    "monsters": [
+      {
+        "id": 2009,
+        "name": "Bá Chủ Tuyệt Vô Thần",
+        "level": 80,
+        "job": 6,
+        "hp": 150000,
+        "mp": 9999,
+        "icon1": 210,
+        "atk": 4200,
+        "def": 2400
+      },
+      {
+        "id": 2010,
+        "name": "Thiếu Chủ Tuyệt Tâm",
+        "level": 72,
+        "job": 7,
+        "hp": 75000,
+        "mp": 8000,
+        "icon1": 203,
+        "atk": 2800,
+        "def": 1400
+      }
+    ]
+  },
+  "207": {
+    "id": 207,
+    "name": "BOSS Đế Thích Thiên",
+    "rewardExp": 800000,
+    "rewardMoney3": 5000000,
+    "rewardItemId": 1007,
+    "monsters": [
+      {
+        "id": 2011,
+        "name": "Chí Tôn Đế Thích Thiên",
+        "level": 85,
+        "job": 4,
+        "hp": 220000,
+        "mp": 9999,
+        "icon1": 211,
+        "atk": 5200,
+        "def": 2800
+      }
+    ]
+  },
+  "208": {
+    "id": 208,
+    "name": "BOSS Đoạn Lãng Song Long Nguyên",
+    "rewardExp": 1500000,
+    "rewardMoney3": 10000000,
+    "rewardItemId": 3005,
+    "monsters": [
+      {
+        "id": 2012,
+        "name": "Ma Thần Đoạn Lãng",
+        "level": 85,
+        "job": 12,
+        "hp": 350000,
+        "mp": 9999,
+        "icon1": 212,
+        "atk": 6500,
+        "def": 3500
+      }
+    ]
+  }
+}

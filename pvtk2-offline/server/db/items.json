@@ -1,0 +1,822 @@
+[
+  {
+    "id": 1001,
+    "name": "Tuyệt Thế Hảo Kiếm",
+    "type": 4,
+    "icon": 4,
+    "grade": 5,
+    "bagIcon": 4,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 10,
+    "price": 100000,
+    "avatarId": 12,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Thần binh Bái Kiếm Sơn Trang của Bộ Kinh Vân, hấp thu tinh hoa Hắc Hàn Thạch, uy lực kinh thiên động địa.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2800
+      },
+      {
+        "id": 29,
+        "value": 2200
+      },
+      {
+        "id": 6,
+        "value": 180
+      },
+      {
+        "id": 8,
+        "value": 150
+      },
+      {
+        "id": 45,
+        "value": 350
+      }
+    ]
+  },
+  {
+    "id": 1002,
+    "name": "Tuyết Ẩm Cuồng Đao",
+    "type": 3,
+    "icon": 3,
+    "grade": 5,
+    "bagIcon": 3,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 10,
+    "price": 100000,
+    "avatarId": 11,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Gia truyền bảo đao của Nhiếp Gia được đúc từ Bạch Lộ Hàn Thiết, hàn khí đóng băng vạn dặm.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2650
+      },
+      {
+        "id": 29,
+        "value": 2100
+      },
+      {
+        "id": 6,
+        "value": 160
+      },
+      {
+        "id": 8,
+        "value": 190
+      },
+      {
+        "id": 46,
+        "value": 320
+      }
+    ]
+  },
+  {
+    "id": 1003,
+    "name": "Hỏa Lân Thần Kiếm",
+    "type": 3,
+    "icon": 3,
+    "grade": 5,
+    "bagIcon": 3,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 10,
+    "price": 95000,
+    "avatarId": 13,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Kiếm khảm vảy Hỏa Kỳ Lân của Đoạn Gia, tăng mạnh sát thương hỏa diễm và nội lực.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2400
+      },
+      {
+        "id": 32,
+        "value": 2400
+      },
+      {
+        "id": 6,
+        "value": 140
+      },
+      {
+        "id": 9,
+        "value": 160
+      }
+    ]
+  },
+  {
+    "id": 1004,
+    "name": "Anh Hùng Kiếm (Vô Danh)",
+    "type": 3,
+    "icon": 3,
+    "grade": 5,
+    "bagIcon": 3,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 8,
+    "price": 120000,
+    "avatarId": 14,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Thần kiếm chính khí hạo nhiên của Võ Lâm Thần Thoại Vô Danh, Vạn Kiếm Quy Tông.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 3000
+      },
+      {
+        "id": 32,
+        "value": 3000
+      },
+      {
+        "id": 6,
+        "value": 200
+      },
+      {
+        "id": 8,
+        "value": 200
+      },
+      {
+        "id": 9,
+        "value": 200
+      }
+    ]
+  },
+  {
+    "id": 1005,
+    "name": "Thiên Tội Thần Thương",
+    "type": 5,
+    "icon": 5,
+    "grade": 5,
+    "bagIcon": 5,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 12,
+    "price": 95000,
+    "avatarId": 15,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Hung khí nhân gian biến hóa khôn lường của Hoài Không, công thủ toàn diện.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2700
+      },
+      {
+        "id": 7,
+        "value": 200
+      },
+      {
+        "id": 6,
+        "value": 180
+      }
+    ]
+  },
+  {
+    "id": 1006,
+    "name": "Phượng Vũ Thần Cung",
+    "type": 7,
+    "icon": 7,
+    "grade": 5,
+    "bagIcon": 7,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 8,
+    "price": 95000,
+    "avatarId": 16,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Thần cung chế tác từ lông vũ Băng Phượng Hoàng, bách phát bách trúng.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2600
+      },
+      {
+        "id": 8,
+        "value": 250
+      },
+      {
+        "id": 45,
+        "value": 400
+      }
+    ]
+  },
+  {
+    "id": 1007,
+    "name": "Cửu Không Pháp Trượng",
+    "type": 6,
+    "icon": 6,
+    "grade": 5,
+    "bagIcon": 6,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 8,
+    "price": 95000,
+    "avatarId": 17,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Pháp trượng hội tụ linh khí Thiên Môn của Đế Thích Thiên, hủy thiên diệt địa.",
+    "attrs": [
+      {
+        "id": 32,
+        "value": 3200
+      },
+      {
+        "id": 9,
+        "value": 260
+      },
+      {
+        "id": 10,
+        "value": 220
+      },
+      {
+        "id": 27,
+        "value": 5000
+      }
+    ]
+  },
+  {
+    "id": 1008,
+    "name": "Thiên Sương Thần Quyền",
+    "type": 8,
+    "icon": 8,
+    "grade": 5,
+    "bagIcon": 8,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 7,
+    "price": 90000,
+    "avatarId": 18,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Quyền sáo băng tinh của Tần Sương và Hùng Bá, đóng băng kinh mạch đối thủ.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2550
+      },
+      {
+        "id": 6,
+        "value": 190
+      },
+      {
+        "id": 7,
+        "value": 190
+      }
+    ]
+  },
+  {
+    "id": 1009,
+    "name": "Kinh Tịch Ám Đao",
+    "type": 2,
+    "icon": 2,
+    "grade": 5,
+    "bagIcon": 2,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 6,
+    "price": 90000,
+    "avatarId": 19,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Đoản đao tuyệt sát của Hoàng Ảnh, tốc độ xuất chiêu nhanh như chớp giật.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2500
+      },
+      {
+        "id": 8,
+        "value": 280
+      },
+      {
+        "id": 45,
+        "value": 450
+      }
+    ]
+  },
+  {
+    "id": 1010,
+    "name": "Hỏa Thần Trọng Pháo",
+    "type": 1,
+    "icon": 1,
+    "grade": 5,
+    "bagIcon": 1,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 12,
+    "price": 90000,
+    "avatarId": 20,
+    "starLevel": 9,
+    "suitId": 1,
+    "desc": "Trọng pháo cơ quan thuật của Đế Quốc, sát thương tầm xa xuyên giáp.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2750
+      },
+      {
+        "id": 8,
+        "value": 220
+      },
+      {
+        "id": 6,
+        "value": 160
+      }
+    ]
+  },
+  {
+    "id": 2001,
+    "name": "Kim Lân Long Mạo (Nón)",
+    "type": 9,
+    "icon": 9,
+    "grade": 5,
+    "bagIcon": 9,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 5,
+    "price": 50000,
+    "avatarId": 30,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Chiến mạo vảy Kỳ Lân bảo hộ nguyên thần, tăng mạnh sinh lực và phòng thủ.",
+    "attrs": [
+      {
+        "id": 33,
+        "value": 1500
+      },
+      {
+        "id": 34,
+        "value": 1500
+      },
+      {
+        "id": 26,
+        "value": 8000
+      },
+      {
+        "id": 7,
+        "value": 150
+      }
+    ]
+  },
+  {
+    "id": 2002,
+    "name": "Bất Diệt Kim Thân Giáp (Áo)",
+    "type": 10,
+    "icon": 10,
+    "grade": 5,
+    "bagIcon": 10,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 10,
+    "price": 80000,
+    "avatarId": 31,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Chiến giáp Kim Cang Bất Hoại của Tuyệt Vô Thần, vạn kiếm bất xâm.",
+    "attrs": [
+      {
+        "id": 33,
+        "value": 2800
+      },
+      {
+        "id": 34,
+        "value": 2800
+      },
+      {
+        "id": 26,
+        "value": 15000
+      },
+      {
+        "id": 7,
+        "value": 250
+      }
+    ]
+  },
+  {
+    "id": 2003,
+    "name": "Thiên Sương Hộ Kiên (Vai)",
+    "type": 11,
+    "icon": 11,
+    "grade": 5,
+    "bagIcon": 11,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 5,
+    "price": 45000,
+    "avatarId": 32,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Hộ kiên hàn băng giảm sát thương chí mạng từ kẻ địch.",
+    "attrs": [
+      {
+        "id": 33,
+        "value": 1200
+      },
+      {
+        "id": 34,
+        "value": 1200
+      },
+      {
+        "id": 26,
+        "value": 6000
+      }
+    ]
+  },
+  {
+    "id": 2004,
+    "name": "Phong Thần Chiến Ngoa (Giày)",
+    "type": 12,
+    "icon": 12,
+    "grade": 5,
+    "bagIcon": 12,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 4,
+    "price": 50000,
+    "avatarId": 33,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Chiến ngoa Phong Thần Cước giúp thân pháp nhanh nhẹn như cuồng phong.",
+    "attrs": [
+      {
+        "id": 33,
+        "value": 1100
+      },
+      {
+        "id": 8,
+        "value": 240
+      },
+      {
+        "id": 47,
+        "value": 300
+      }
+    ]
+  },
+  {
+    "id": 2005,
+    "name": "Bài Vân Hộ Uyển (Găng)",
+    "type": 13,
+    "icon": 13,
+    "grade": 5,
+    "bagIcon": 13,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 4,
+    "price": 45000,
+    "avatarId": 34,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Hộ uyển Bài Vân Chưởng gia tăng uy lực chưởng pháp và chính xác.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 900
+      },
+      {
+        "id": 6,
+        "value": 160
+      },
+      {
+        "id": 44,
+        "value": 300
+      }
+    ]
+  },
+  {
+    "id": 2006,
+    "name": "Long Mạch Yêu Đai (Đai)",
+    "type": 14,
+    "icon": 14,
+    "grade": 5,
+    "bagIcon": 14,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 4,
+    "price": 45000,
+    "avatarId": 35,
+    "starLevel": 10,
+    "suitId": 1,
+    "desc": "Yêu đai kết tinh linh khí Long Mạch Trung Nguyên, hộ mệnh tuyệt đỉnh.",
+    "attrs": [
+      {
+        "id": 26,
+        "value": 10000
+      },
+      {
+        "id": 27,
+        "value": 5000
+      },
+      {
+        "id": 7,
+        "value": 180
+      }
+    ]
+  },
+  {
+    "id": 2007,
+    "name": "Băngách Thần Châu (Dây Chuyền)",
+    "type": 15,
+    "icon": 15,
+    "grade": 5,
+    "bagIcon": 15,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 2,
+    "price": 60000,
+    "avatarId": 36,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Bảo châu của Thiên Môn giữ thân bất lão, hồi phục sinh lực và nội lực.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 1200
+      },
+      {
+        "id": 32,
+        "value": 1200
+      },
+      {
+        "id": 26,
+        "value": 8000
+      }
+    ]
+  },
+  {
+    "id": 2008,
+    "name": "Thiên Môn Long Giới (Nhẫn)",
+    "type": 16,
+    "icon": 16,
+    "grade": 5,
+    "bagIcon": 16,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 2,
+    "price": 60000,
+    "avatarId": 37,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Long giới chí tôn gia tăng toàn bộ thuộc tính cơ bản +150.",
+    "attrs": [
+      {
+        "id": 6,
+        "value": 150
+      },
+      {
+        "id": 7,
+        "value": 150
+      },
+      {
+        "id": 8,
+        "value": 150
+      },
+      {
+        "id": 9,
+        "value": 150
+      },
+      {
+        "id": 10,
+        "value": 150
+      }
+    ]
+  },
+  {
+    "id": 2009,
+    "name": "Cánh Hỏa Phượng Hoàng (Thần Dực)",
+    "type": 17,
+    "icon": 17,
+    "grade": 5,
+    "bagIcon": 17,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 5,
+    "price": 150000,
+    "avatarId": 40,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Đôi cánh Phượng Hoàng Bất Tử rực lửa, tăng toàn diện công thủ và tốc độ.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2000
+      },
+      {
+        "id": 32,
+        "value": 2000
+      },
+      {
+        "id": 33,
+        "value": 2000
+      },
+      {
+        "id": 26,
+        "value": 20000
+      }
+    ]
+  },
+  {
+    "id": 2010,
+    "name": "Hỏa Kỳ Lân Tọa Kỵ (Thú Cưỡi)",
+    "type": 21,
+    "icon": 21,
+    "grade": 5,
+    "bagIcon": 21,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 10,
+    "price": 150000,
+    "avatarId": 45,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Thần thú Hỏa Kỳ Lân trong Lăng Vân Động đã được thu phục làm tọa kỵ bá chủ.",
+    "attrs": [
+      {
+        "id": 26,
+        "value": 25000
+      },
+      {
+        "id": 30,
+        "value": 1800
+      },
+      {
+        "id": 8,
+        "value": 300
+      }
+    ]
+  },
+  {
+    "id": 2011,
+    "name": "Chiến Bào Bá Chúa Thiên Hạ (Thời Trang)",
+    "type": 23,
+    "icon": 23,
+    "grade": 5,
+    "bagIcon": 23,
+    "reqLv": 1,
+    "durability": 500,
+    "maxDurability": 500,
+    "weight": 3,
+    "price": 100000,
+    "avatarId": 50,
+    "starLevel": 10,
+    "suitId": 2,
+    "desc": "Thời trang Chí Tôn Phong Vân Truyền Kỳ 2, tỏa hào quang hoàng kim.",
+    "attrs": [
+      {
+        "id": 26,
+        "value": 12000
+      },
+      {
+        "id": 30,
+        "value": 1500
+      },
+      {
+        "id": 32,
+        "value": 1500
+      }
+    ]
+  },
+  {
+    "id": 3001,
+    "name": "Huyết Bồ Đề (Đại Hoàn Đan HP/MP)",
+    "type": 36,
+    "icon": 36,
+    "grade": 4,
+    "bagIcon": 36,
+    "reqLv": 1,
+    "durability": 1,
+    "maxDurability": 99,
+    "weight": 1,
+    "price": 100,
+    "avatarId": 0,
+    "starLevel": 0,
+    "suitId": 0,
+    "desc": "Thánh quả mọc trong Lăng Vân Động, sử dụng lập tức hồi phục đầy HP & MP.",
+    "attrs": [
+      {
+        "id": 26,
+        "value": 50000
+      },
+      {
+        "id": 27,
+        "value": 50000
+      }
+    ]
+  },
+  {
+    "id": 3002,
+    "name": "Chân Nguyên Đế Thích Thiên (Sách EXP Thần Tốc)",
+    "type": 36,
+    "icon": 31,
+    "grade": 5,
+    "bagIcon": 31,
+    "reqLv": 1,
+    "durability": 1,
+    "maxDurability": 99,
+    "weight": 1,
+    "price": 1000,
+    "avatarId": 0,
+    "starLevel": 0,
+    "suitId": 0,
+    "desc": "Sử dụng nhận ngay 500,000 EXP và +5 Cấp Độ nhân vật + 1000 Điểm Kỹ Năng (SP)!",
+    "attrs": []
+  },
+  {
+    "id": 3003,
+    "name": "Rương GM Phú Quý (9,999,999 Vàng + KNB + Lá)",
+    "type": 39,
+    "icon": 39,
+    "grade": 5,
+    "bagIcon": 39,
+    "reqLv": 1,
+    "durability": 1,
+    "maxDurability": 99,
+    "weight": 1,
+    "price": 0,
+    "avatarId": 0,
+    "starLevel": 0,
+    "suitId": 0,
+    "desc": "Mở rương nhận ngay 9,999,999 KNB, 9,999,999 Kim Diệp và 99,999,999 Đồng Vàng!",
+    "attrs": []
+  },
+  {
+    "id": 3004,
+    "name": "Trứng Thần Thú Hỏa Kỳ Lân",
+    "type": 30,
+    "icon": 30,
+    "grade": 5,
+    "bagIcon": 30,
+    "reqLv": 1,
+    "durability": 1,
+    "maxDurability": 1,
+    "weight": 5,
+    "price": 50000,
+    "avatarId": 0,
+    "starLevel": 10,
+    "suitId": 0,
+    "desc": "Ấp nở Thần Thú Hỏa Kỳ Lân trợ chiến cùng nhân vật trong mọi trận đánh.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 2500
+      },
+      {
+        "id": 26,
+        "value": 30000
+      }
+    ]
+  },
+  {
+    "id": 3005,
+    "name": "Long Nguyên Châu (Bảo Thạch Tối Thượng Lv10)",
+    "type": 35,
+    "icon": 35,
+    "grade": 5,
+    "bagIcon": 35,
+    "reqLv": 1,
+    "durability": 1,
+    "maxDurability": 99,
+    "weight": 1,
+    "price": 20000,
+    "avatarId": 0,
+    "starLevel": 0,
+    "suitId": 0,
+    "desc": "Mảnh Chân Nguyên Rồng Thần khảm vào trang bị tăng +1000 Công Kích & +10000 HP.",
+    "attrs": [
+      {
+        "id": 30,
+        "value": 1000
+      },
+      {
+        "id": 26,
+        "value": 10000
+      }
+    ]
+  }
+]

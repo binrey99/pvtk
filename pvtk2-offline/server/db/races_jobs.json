@@ -1,0 +1,143 @@
+{
+  "races": [
+    {
+      "id": 0,
+      "name": "Đông Phương",
+      "desc": "Tộc người phương Đông tinh thông võ học, kiếm thuật và nội công tâm pháp."
+    },
+    {
+      "id": 1,
+      "name": "Đế Quốc",
+      "desc": "Chiến binh phương Tây khoác trọng giáp, sử dụng trọng kiếm và súng ống."
+    },
+    {
+      "id": 2,
+      "name": "Hồ Tộc",
+      "desc": "Tộc người linh hoạt vùng thảo nguyên và rừng sâu, giỏi ám sát và bùa chú."
+    },
+    {
+      "id": 3,
+      "name": "Bắc Nguyên",
+      "desc": "Tộc người phương Bắc mang huyết mạch cổ thần, sức mạnh thể chất phi thường."
+    }
+  ],
+  "jobs": [
+    {
+      "id": 0,
+      "name": "Tân Thủ",
+      "baseStr": 15,
+      "baseCon": 15,
+      "baseAgi": 15,
+      "baseInt": 15,
+      "baseWis": 15
+    },
+    {
+      "id": 1,
+      "name": "Hiệp Khách",
+      "baseStr": 35,
+      "baseCon": 25,
+      "baseAgi": 30,
+      "baseInt": 15,
+      "baseWis": 15
+    },
+    {
+      "id": 2,
+      "name": "Chiến Binh",
+      "baseStr": 40,
+      "baseCon": 38,
+      "baseAgi": 18,
+      "baseInt": 12,
+      "baseWis": 12
+    },
+    {
+      "id": 3,
+      "name": "Pháp Sư",
+      "baseStr": 12,
+      "baseCon": 20,
+      "baseAgi": 20,
+      "baseInt": 42,
+      "baseWis": 26
+    },
+    {
+      "id": 4,
+      "name": "Tu Chân",
+      "baseStr": 14,
+      "baseCon": 22,
+      "baseAgi": 22,
+      "baseInt": 30,
+      "baseWis": 38
+    },
+    {
+      "id": 5,
+      "name": "Thánh Đồ",
+      "baseStr": 15,
+      "baseCon": 28,
+      "baseAgi": 18,
+      "baseInt": 28,
+      "baseWis": 40
+    },
+    {
+      "id": 6,
+      "name": "Dã Man",
+      "baseStr": 45,
+      "baseCon": 35,
+      "baseAgi": 20,
+      "baseInt": 10,
+      "baseWis": 10
+    },
+    {
+      "id": 7,
+      "name": "Thích Khách",
+      "baseStr": 32,
+      "baseCon": 20,
+      "baseAgi": 44,
+      "baseInt": 14,
+      "baseWis": 14
+    },
+    {
+      "id": 8,
+      "name": "Xạ Thủ",
+      "baseStr": 30,
+      "baseCon": 22,
+      "baseAgi": 42,
+      "baseInt": 16,
+      "baseWis": 14
+    },
+    {
+      "id": 9,
+      "name": "Võ Sư",
+      "baseStr": 38,
+      "baseCon": 32,
+      "baseAgi": 32,
+      "baseInt": 14,
+      "baseWis": 16
+    },
+    {
+      "id": 10,
+      "name": "Ám Vu",
+      "baseStr": 14,
+      "baseCon": 24,
+      "baseAgi": 22,
+      "baseInt": 40,
+      "baseWis": 32
+    },
+    {
+      "id": 11,
+      "name": "Tiên Pháp",
+      "baseStr": 12,
+      "baseCon": 22,
+      "baseAgi": 24,
+      "baseInt": 45,
+      "baseWis": 30
+    },
+    {
+      "id": 12,
+      "name": "Phá Quân",
+      "baseStr": 42,
+      "baseCon": 36,
+      "baseAgi": 28,
+      "baseInt": 15,
+      "baseWis": 15
+    }
+  ]
+}

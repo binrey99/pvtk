@@ -1,0 +1,741 @@
+[
+  {
+    "id": 1,
+    "name": "Phong Vân Tân Thủ Thôn",
+    "weather": 1,
+    "tileSetId": 0,
+    "width": 24,
+    "height": 20,
+    "spawnX": 12,
+    "spawnY": 10,
+    "jumpPoints": [
+      {
+        "gx": 22,
+        "gy": 10,
+        "targetMapId": 2,
+        "targetGx": 3,
+        "targetGy": 10,
+        "label": "Đến Thiên Hạ Hội"
+      },
+      {
+        "gx": 12,
+        "gy": 2,
+        "targetMapId": 4,
+        "targetGx": 12,
+        "targetGy": 17,
+        "label": "Đến Lăng Vân Động"
+      },
+      {
+        "gx": 2,
+        "gy": 10,
+        "targetMapId": 5,
+        "targetGx": 20,
+        "targetGy": 10,
+        "label": "Đến Bái Kiếm Sơn Trang"
+      },
+      {
+        "gx": 12,
+        "gy": 18,
+        "targetMapId": 6,
+        "targetGx": 12,
+        "targetGy": 3,
+        "label": "Đến Trung Hoa Các"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Menu Offline)",
+        "icon1": 101,
+        "gx": 11,
+        "gy": 9,
+        "dir": 2,
+        "welcome": "Chào mừng Đại Hiệp đến với Phong Vân Truyền Kỳ 2 Offline!\nTất cả Vàng, KNB, Thần Khí, Kỹ Năng, Thú Cưỡi đều mở khóa miễn phí 100% tại đây!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 2,
+        "npcType": 0,
+        "name": "Văn Sửu Sửu (Hướng Dẫn)",
+        "icon1": 102,
+        "gx": 14,
+        "gy": 9,
+        "dir": 2,
+        "welcome": "Thiên Hạ Hội đang chiêu mộ anh hùng hào kiệt khắp thiên hạ! Hãy nhận nhiệm vụ tân thủ để lên đường.",
+        "shopIds": [
+          901
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          2,
+          3
+        ],
+        "missions": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 3,
+        "npcType": 0,
+        "name": "Thợ Rèn Bái Kiếm (Thần Khí)",
+        "icon1": 103,
+        "gx": 9,
+        "gy": 11,
+        "dir": 2,
+        "welcome": "Tuyệt Thế Hảo Kiếm và Tuyết Ẩm Cuồng Đao đã ra lò! Đại hiệp muốn chọn thần binh nào?",
+        "shopIds": [
+          902,
+          903
+        ],
+        "skillShopId": 0,
+        "teleportMapIds": [
+          5
+        ],
+        "missions": [
+          3
+        ]
+      },
+      {
+        "id": 4,
+        "npcType": 0,
+        "name": "Vô Danh (Truyền Thừa Võ Học)",
+        "icon1": 104,
+        "gx": 15,
+        "gy": 11,
+        "dir": 2,
+        "welcome": "Vạn Kiếm Quy Tông, Phong Thần Cước, Bài Vân Chưởng đều nằm trong Tàng Kinh Các này.",
+        "shopIds": [
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          6,
+          8
+        ],
+        "missions": []
+      },
+      {
+        "id": 5,
+        "npcType": 1,
+        "name": "Sơn Tặc Đầu Mục (Tập Luyện)",
+        "icon1": 201,
+        "gx": 17,
+        "gy": 14,
+        "dir": 2,
+        "battleGroupId": 101,
+        "welcome": "Muốn qua Phong Vân Thôn phải bước qua lưỡi đao của ta!"
+      },
+      {
+        "id": 6,
+        "npcType": 1,
+        "name": "Đệ Tử Thiên Hạ Hội",
+        "icon1": 202,
+        "gx": 7,
+        "gy": 14,
+        "dir": 2,
+        "battleGroupId": 102,
+        "welcome": "Phụng mệnh Hùng Bá Bang Chủ tuần tra vùng này!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Thiên Hạ Hội Tổng Đàn",
+    "weather": 0,
+    "tileSetId": 1,
+    "width": 28,
+    "height": 22,
+    "spawnX": 14,
+    "spawnY": 11,
+    "jumpPoints": [
+      {
+        "gx": 2,
+        "gy": 10,
+        "targetMapId": 1,
+        "targetGx": 20,
+        "targetGy": 10,
+        "label": "Về Phong Vân Thôn"
+      },
+      {
+        "gx": 25,
+        "gy": 10,
+        "targetMapId": 3,
+        "targetGx": 3,
+        "targetGy": 10,
+        "label": "Đến Vô Song Thành"
+      },
+      {
+        "gx": 14,
+        "gy": 2,
+        "targetMapId": 7,
+        "targetGx": 14,
+        "targetGy": 19,
+        "label": "Đến Vô Tuyệt Thần Cung"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Thiên Hạ Hội)",
+        "icon1": 101,
+        "gx": 12,
+        "gy": 10,
+        "dir": 2,
+        "welcome": "Menu GM Offline tại Thiên Hạ Hội: Nhận Vàng/KNB, Mua Thần Khí 0 Đồng, Dịch Chuyển Nhanh!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 2,
+        "npcType": 0,
+        "name": "Bộ Kinh Vân (Đường Chủ Phi Vân Đường)",
+        "icon1": 105,
+        "gx": 10,
+        "gy": 8,
+        "dir": 2,
+        "welcome": "Không ai được phép chạm vào Khổng Từ! Hãy lĩnh hội Bài Vân Chưởng cùng ta!",
+        "shopIds": [
+          902
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          4,
+          5
+        ],
+        "missions": [
+          2
+        ]
+      },
+      {
+        "id": 3,
+        "npcType": 0,
+        "name": "Nhiếp Phong (Đường Chủ Thần Phong Đường)",
+        "icon1": 106,
+        "gx": 18,
+        "gy": 8,
+        "dir": 2,
+        "welcome": "Tâm như chỉ thủy mới khống chế được Ma Đao và Phong Thần Cước!",
+        "shopIds": [
+          902
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          4,
+          6
+        ],
+        "missions": [
+          2
+        ]
+      },
+      {
+        "id": 4,
+        "npcType": 1,
+        "name": "BOSS Hùng Bá (Bang Chủ Thiên Hạ Hội)",
+        "icon1": 205,
+        "gx": 14,
+        "gy": 6,
+        "dir": 2,
+        "battleGroupId": 201,
+        "welcome": "Thành cũng Phong Vân, Bại cũng Phong Vân! Ngươi dám khiêu chiến Tam Nguyên Quy Nhất của lão phu sao?!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Vô Song Thành",
+    "weather": 0,
+    "tileSetId": 2,
+    "width": 28,
+    "height": 22,
+    "spawnX": 14,
+    "spawnY": 12,
+    "jumpPoints": [
+      {
+        "gx": 2,
+        "gy": 10,
+        "targetMapId": 2,
+        "targetGx": 23,
+        "targetGy": 10,
+        "label": "Về Thiên Hạ Hội"
+      },
+      {
+        "gx": 25,
+        "gy": 10,
+        "targetMapId": 1,
+        "targetGx": 12,
+        "targetGy": 10,
+        "label": "Về Phong Vân Thôn"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Vô Song Thành)",
+        "icon1": 101,
+        "gx": 12,
+        "gy": 11,
+        "dir": 2,
+        "welcome": "Trạm hỗ trợ GM Vô Song Thành!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "BOSS Kiếm Thánh (Kiếm Nhị Thập Tam)",
+        "icon1": 206,
+        "gx": 14,
+        "gy": 7,
+        "dir": 2,
+        "battleGroupId": 202,
+        "welcome": "Hãy đỡ một chiêu Kiếm Nhị Thập Tam của lão phu!"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Lăng Vân Động (Hang Hỏa Kỳ Lân)",
+    "weather": 2,
+    "tileSetId": 3,
+    "width": 26,
+    "height": 20,
+    "spawnX": 13,
+    "spawnY": 15,
+    "jumpPoints": [
+      {
+        "gx": 12,
+        "gy": 18,
+        "targetMapId": 1,
+        "targetGx": 12,
+        "targetGy": 4,
+        "label": "Về Phong Vân Thôn"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Lăng Vân Động)",
+        "icon1": 101,
+        "gx": 11,
+        "gy": 14,
+        "dir": 2,
+        "welcome": "Huyết Bồ Đề và Hỏa Kỳ Lân đang ở phía trước! Nhận trang bị GM trước khi khiêu chiến.",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "THẦN THÚ Hỏa Kỳ Lân (World Boss)",
+        "icon1": 207,
+        "gx": 13,
+        "gy": 7,
+        "dir": 2,
+        "battleGroupId": 203,
+        "welcome": "GRÀOOOO! Lửa cháy ngập tràn Lăng Vân Động!"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Bái Kiếm Sơn Trang",
+    "weather": 0,
+    "tileSetId": 4,
+    "width": 26,
+    "height": 20,
+    "spawnX": 13,
+    "spawnY": 12,
+    "jumpPoints": [
+      {
+        "gx": 22,
+        "gy": 10,
+        "targetMapId": 1,
+        "targetGx": 4,
+        "targetGy": 10,
+        "label": "Về Phong Vân Thôn"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Bái Kiếm Sơn Trang)",
+        "icon1": 101,
+        "gx": 11,
+        "gy": 11,
+        "dir": 2,
+        "welcome": "Nơi rèn đúc Tuyệt Thế Hảo Kiếm!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": [
+          3
+        ]
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "BOSS Kiếm Ma & Ngạo Thiên",
+        "icon1": 208,
+        "gx": 13,
+        "gy": 6,
+        "dir": 2,
+        "battleGroupId": 204,
+        "welcome": "Tuyệt Thế Hảo Kiếm thuộc về Bái Kiếm Sơn Trang!"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Trung Hoa Các",
+    "weather": 1,
+    "tileSetId": 5,
+    "width": 24,
+    "height": 20,
+    "spawnX": 12,
+    "spawnY": 12,
+    "jumpPoints": [
+      {
+        "gx": 12,
+        "gy": 2,
+        "targetMapId": 1,
+        "targetGx": 12,
+        "targetGy": 16,
+        "label": "Về Phong Vân Thôn"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Trung Hoa Các)",
+        "icon1": 101,
+        "gx": 10,
+        "gy": 11,
+        "dir": 2,
+        "welcome": "Trung Hoa Các - Thánh địa võ lâm Trung Nguyên!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "Võ Lâm Thần Thoại Vô Danh (Tỉ Thí)",
+        "icon1": 209,
+        "gx": 12,
+        "gy": 7,
+        "dir": 2,
+        "battleGroupId": 205,
+        "welcome": "Hãy để ta kiểm chứng kiếm đạo của đại hiệp!"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Vô Tuyệt Thần Cung",
+    "weather": 0,
+    "tileSetId": 6,
+    "width": 28,
+    "height": 22,
+    "spawnX": 14,
+    "spawnY": 14,
+    "jumpPoints": [
+      {
+        "gx": 14,
+        "gy": 20,
+        "targetMapId": 2,
+        "targetGx": 14,
+        "targetGy": 4,
+        "label": "Về Thiên Hạ Hội"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Vô Tuyệt Thần Cung)",
+        "icon1": 101,
+        "gx": 12,
+        "gy": 13,
+        "dir": 2,
+        "welcome": "Trạm tiếp tế GM trước đại chiến Tuyệt Vô Thần!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "BOSS Tuyệt Vô Thần (Bất Diệt Kim Thân)",
+        "icon1": 210,
+        "gx": 14,
+        "gy": 7,
+        "dir": 2,
+        "battleGroupId": 206,
+        "welcome": "Sát Quyền của bản tọa sẽ nghiền nát võ lâm Trung Nguyên!"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Thiên Môn Thánh Điện",
+    "weather": 3,
+    "tileSetId": 7,
+    "width": 30,
+    "height": 24,
+    "spawnX": 15,
+    "spawnY": 16,
+    "jumpPoints": [
+      {
+        "gx": 15,
+        "gy": 22,
+        "targetMapId": 1,
+        "targetGx": 12,
+        "targetGy": 10,
+        "label": "Về Phong Vân Thôn"
+      },
+      {
+        "gx": 15,
+        "gy": 2,
+        "targetMapId": 9,
+        "targetGx": 15,
+        "targetGy": 20,
+        "label": "Vào Cửu Không Vô Giới"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Thiên Môn)",
+        "icon1": 101,
+        "gx": 13,
+        "gy": 15,
+        "dir": 2,
+        "welcome": "Thiên Môn Thánh Điện - Nơi ngự trị của Đế Thích Thiên!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "BOSS Đế Thích Thiên (Thánh Tâm Quyết)",
+        "icon1": 211,
+        "gx": 15,
+        "gy": 8,
+        "dir": 2,
+        "battleGroupId": 207,
+        "welcome": "Ta đã sống gần hai ngàn năm, phàm nhân như ngươi dám nghịch thiên sao?!"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Cửu Không Vô Giới (Đỉnh Cao Chiến Thần)",
+    "weather": 2,
+    "tileSetId": 8,
+    "width": 30,
+    "height": 24,
+    "spawnX": 15,
+    "spawnY": 18,
+    "jumpPoints": [
+      {
+        "gx": 15,
+        "gy": 22,
+        "targetMapId": 8,
+        "targetGx": 15,
+        "targetGy": 4,
+        "label": "Về Thiên Môn Thánh Điện"
+      }
+    ],
+    "npcs": [
+      {
+        "id": 1,
+        "npcType": 5,
+        "name": "GM Tiên Tử (Cửu Không Vô Giới)",
+        "icon1": 101,
+        "gx": 13,
+        "gy": 17,
+        "dir": 2,
+        "welcome": "Cửu Không Vô Giới - Đấu trường tối thượng!",
+        "shopIds": [
+          901,
+          902,
+          903,
+          904
+        ],
+        "skillShopId": 1,
+        "teleportMapIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "missions": []
+      },
+      {
+        "id": 2,
+        "npcType": 1,
+        "name": "BOSS Đoạn Lãng Song Long Nguyên (Cấp Thần)",
+        "icon1": 212,
+        "gx": 15,
+        "gy": 8,
+        "dir": 2,
+        "battleGroupId": 208,
+        "welcome": "Thôn phệ hai viên Long Nguyên, ta đã là Chân Thần bất tử của thế giới này!"
+      }
+    ]
+  }
+]

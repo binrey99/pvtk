@@ -1,0 +1,12 @@
+{
+  "name": "pvtk2-offline",
+  "version": "1.0.8",
+  "description": "Phong Vân Truyền Kỳ 2 (WorldOL) - Offline APK Builder, Local Server Emulator & Web GM Dashboard",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build:apk": "node tools/build_offline_apk.js",
+    "start": "node server/index.js",
+    "test:offline": "node tools/test_offline_e2e.js"
+  }
+}

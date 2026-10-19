@@ -1,0 +1,140 @@
+[
+  {
+    "id": 10001,
+    "name": "Bộ Kinh Vân",
+    "sex": 0,
+    "race": 0,
+    "job": 1,
+    "level": 60,
+    "exp": 125000,
+    "expMax": 500000,
+    "hp": 68000,
+    "mp": 25000,
+    "sp": 5000,
+    "cp": 1000,
+    "str": 450,
+    "con": 420,
+    "agi": 400,
+    "int": 300,
+    "wis": 300,
+    "money1": 8888888,
+    "money2": 8888888,
+    "money3": 99999999,
+    "vipLevel": 12,
+    "vipExp": 100000,
+    "mapId": 1,
+    "gx": 12,
+    "gy": 10,
+    "icon1": 1,
+    "icon2": 12,
+    "icon3": 45,
+    "title": "Bất Khốc Tử Thần",
+    "countryId": 1,
+    "countryName": "Thiên Hạ Hội",
+    "countryRank": 7,
+    "equipped": [
+      {
+        "slotPos": 3,
+        "itemId": 1001
+      },
+      {
+        "slotPos": 9,
+        "itemId": 2001
+      },
+      {
+        "slotPos": 10,
+        "itemId": 2002
+      },
+      {
+        "slotPos": 12,
+        "itemId": 2004
+      },
+      {
+        "slotPos": 17,
+        "itemId": 2009
+      },
+      {
+        "slotPos": 21,
+        "itemId": 2010
+      }
+    ],
+    "bag": [
+      {
+        "slotPos": 30,
+        "itemId": 1002,
+        "count": 1
+      },
+      {
+        "slotPos": 31,
+        "itemId": 1003,
+        "count": 1
+      },
+      {
+        "slotPos": 32,
+        "itemId": 1004,
+        "count": 1
+      },
+      {
+        "slotPos": 33,
+        "itemId": 2011,
+        "count": 1
+      },
+      {
+        "slotPos": 34,
+        "itemId": 3001,
+        "count": 50
+      },
+      {
+        "slotPos": 35,
+        "itemId": 3002,
+        "count": 20
+      },
+      {
+        "slotPos": 36,
+        "itemId": 3003,
+        "count": 10
+      },
+      {
+        "slotPos": 37,
+        "itemId": 3004,
+        "count": 1
+      },
+      {
+        "slotPos": 38,
+        "itemId": 3005,
+        "count": 10
+      }
+    ],
+    "skillIds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      109,
+      110
+    ],
+    "completedMissions": [],
+    "activeMissions": [
+      1,
+      2
+    ],
+    "pet": {
+      "id": 50001,
+      "name": "Thần Thú Hỏa Kỳ Lân",
+      "level": 60,
+      "job": 6,
+      "grade": 5,
+      "age": 10,
+      "intimate": 100,
+      "icon1": 207,
+      "hp": 45000,
+      "mp": 10000,
+      "str": 380,
+      "con": 380,
+      "agi": 350,
+      "int": 250,
+      "wis": 250
+    }
+  }
+]
